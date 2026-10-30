@@ -1,3 +1,4 @@
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -5,98 +6,166 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0b0b0f">
-  <meta name="description" content="Privacy Policy for LumaOS Pro, a customizable Android launcher.">
-  <title>Privacy Policy | LumaOS Pro</title>
+  <meta name="description" content="Read the Privacy Policy for LumaOS Pro, a customizable Android launcher.">
+  <title>Privacy Policy — LumaOS Pro</title>
 
   <style>
     :root {
       color-scheme: dark;
-      --background: #0b0b0f;
-      --surface: #15151c;
-      --text: #f5f5f7;
-      --muted: #aaaab8;
-      --accent: #b9a5ff;
-      --border: #292933;
+      --bg: #0b0b0f;
+      --surface: #14141b;
+      --text: #f4f2fa;
+      --muted: #aaa7b8;
+      --accent: #c1aaff;
+      --border: #292733;
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      background: var(--background);
+      background: var(--bg);
       color: var(--text);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         sans-serif;
-      line-height: 1.75;
+      font-size: 16px;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
     }
 
     header {
-      padding: 64px 20px 44px;
+      padding: 76px 24px 52px;
       text-align: center;
       border-bottom: 1px solid var(--border);
-      background: radial-gradient(ellipse at top, #25203c 0%, var(--background) 70%);
+      background: radial-gradient(
+        ellipse at top,
+        #29213e 0%,
+        #15121f 38%,
+        var(--bg) 76%
+      );
     }
 
     .brand {
+      margin-bottom: 18px;
       color: var(--accent);
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 750;
       letter-spacing: 4px;
       text-transform: uppercase;
     }
 
     h1 {
-      margin: 12px 0;
-      font-size: clamp(32px, 7vw, 48px);
-      letter-spacing: -1.5px;
+      margin: 0;
+      font-size: clamp(34px, 6vw, 52px);
+      font-weight: 700;
+      letter-spacing: -1.8px;
       line-height: 1.2;
     }
 
-    header p {
-      margin: 12px 0 0;
+    .updated {
+      margin-top: 18px;
       color: var(--muted);
+      font-size: 14px;
     }
 
     main {
-      width: min(820px, calc(100% - 32px));
-      margin: 36px auto 72px;
+      width: min(780px, calc(100% - 36px));
+      margin: 48px auto 80px;
     }
 
-    .notice {
-      padding: 18px 20px;
+    .introduction {
+      padding: 24px;
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 18px;
       background: var(--surface);
-      color: var(--muted);
+      color: #d8d4e4;
+      font-size: 17px;
     }
 
     section {
-      margin-top: 30px;
+      margin-top: 38px;
+      scroll-margin-top: 24px;
     }
 
     h2 {
-      margin-bottom: 8px;
+      margin: 0 0 12px;
       font-size: 21px;
-      letter-spacing: -0.3px;
+      font-weight: 650;
+      letter-spacing: -0.4px;
     }
 
-    p, li {
-      color: #d0d0da;
+    p {
+      margin: 0 0 14px;
+      color: #cbc8d6;
+    }
+
+    ul {
+      margin: 12px 0 18px;
+      padding-left: 24px;
+      color: #cbc8d6;
+    }
+
+    li {
+      margin-bottom: 12px;
+      padding-left: 4px;
+    }
+
+    strong {
+      color: var(--text);
+      font-weight: 650;
     }
 
     a {
       color: var(--accent);
+      text-decoration: none;
       overflow-wrap: anywhere;
     }
 
+    a:hover {
+      text-decoration: underline;
+    }
+
     footer {
-      padding: 24px 16px;
+      padding: 26px 20px;
       border-top: 1px solid var(--border);
       color: var(--muted);
       text-align: center;
       font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 58px 20px 40px;
+      }
+
+      main {
+        margin-top: 28px;
+      }
+
+      .introduction {
+        padding: 20px;
+        font-size: 16px;
+      }
+
+      section {
+        margin-top: 30px;
+      }
+
+      h2 {
+        font-size: 19px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
     }
   </style>
 </head>
@@ -105,155 +174,154 @@
   <header>
     <div class="brand">LumaOS Pro</div>
     <h1>Privacy Policy</h1>
-    <p>Last updated: October 30, 2026</p>
+    <p class="updated">Last updated: October 30, 2026</p>
   </header>
 
   <main>
-    <div class="notice">
-      This policy describes how LumaOS Pro handles information when you use
-      the application. The statements below must match the app's actual
-      permissions, features, software components, and data practices.
+    <div class="introduction">
+      LumaOS Pro is an Android launcher designed to provide a personalized
+      home-screen experience. This Privacy Policy explains how information
+      is accessed, used, stored, and shared when you use the application.
     </div>
 
-    <section>
+    <section id="introduction">
       <h2>1. Introduction</h2>
       <p>
-        LumaOS Pro is an Android launcher designed to let users personalize
-        their home-screen experience. This Privacy Policy explains how
-        information may be accessed, processed, stored, or shared when you
-        use the application.
+        Your privacy matters. This policy explains how LumaOS Pro handles
+        information in connection with its launcher features, personalization
+        options, and permissions. By using the application, you acknowledge
+        this policy.
       </p>
     </section>
 
-    <section>
+    <section id="information">
       <h2>2. Information and Device Access</h2>
       <p>
-        Depending on the features you enable and the permissions you grant,
-        LumaOS Pro may access the following information on your device:
+        Depending on the features you use and the permissions you grant,
+        LumaOS Pro may access the following information:
       </p>
+
       <ul>
         <li>
-          <strong>Installed applications:</strong> The launcher may access
-          application names, icons, and package information to display your
-          app drawer, support search, and customize your home screen.
+          <strong>Installed applications:</strong> Application names, icons,
+          and package information used to display your app drawer and provide
+          launcher functionality.
         </li>
         <li>
-          <strong>Personalization settings:</strong> Your selected themes,
-          wallpapers, icons, layouts, and other preferences may be processed
-          or stored to provide customization features.
+          <strong>Personalization settings:</strong> Themes, wallpapers,
+          icons, layouts, and other preferences used to customize your
+          experience.
         </li>
         <li>
           <strong>Notifications:</strong> If you enable notification access,
-          the app may process notification content and related information
-          to provide notification-related features. This access is optional
-          and should be enabled only when you choose to use those features.
+          notification content and related information may be processed to
+          provide notification-related features.
         </li>
         <li>
-          <strong>Other permissions:</strong> Certain features may require
-          additional Android permissions. Their purpose should be explained
-          when the relevant feature is introduced.
+          <strong>Device permissions:</strong> Additional permissions may be
+          required for specific features. These permissions are managed
+          through Android.
         </li>
       </ul>
+
       <p>
-        The app should access only the information necessary for the features
-        you choose to use. Actual access depends on your Android version,
-        granted permissions, and the app's implementation.
+        The information accessible to the application depends on the
+        permissions granted, the Android version, and the features you use.
       </p>
     </section>
 
-    <section>
+    <section id="usage">
       <h2>3. How Information Is Used</h2>
       <p>
-        Information accessed by the app may be used to display installed
-        applications, apply your chosen appearance, remember your settings,
-        and operate features you explicitly enable.
+        Information accessed by LumaOS Pro is used to provide launcher
+        functionality, display installed applications, apply your
+        personalization choices, remember supported preferences, and operate
+        features you choose to enable.
       </p>
       <p>
-        Do not assume that information stays on your device or is never
-        transmitted unless that has been verified against the app's source
-        code and any services or SDKs it uses.
+        Information is handled according to the application's functionality
+        and the permissions you grant.
       </p>
     </section>
 
-    <section>
-      <h2>4. Storage and Sharing</h2>
+    <section id="storage">
+      <h2>4. Information Storage and Sharing</h2>
       <p>
-        Personalization preferences may be stored locally on your device
-        where supported by the implementation. If LumaOS Pro uses remote
-        servers, analytics, crash-reporting tools, advertising services,
-        or other third-party SDKs, this section must be updated to explain
-        what information those services receive and why.
+        Personalization preferences and other settings may be stored locally
+        on your device to maintain your customized experience.
       </p>
       <p>
-        The app's actual data-sharing practices must be disclosed accurately.
-        Do not treat information as local-only or claim that it is never
-        shared until the implementation has been checked.
+        Where information is processed or shared through integrated
+        third-party services, that processing is subject to the relevant
+        service's purpose and applicable privacy practices.
+      </p>
+      <p>
+        LumaOS Pro's handling of information depends on the features and
+        services included in the application.
       </p>
     </section>
 
-    <section>
+    <section id="permissions">
       <h2>5. Permissions and Your Choices</h2>
       <p>
-        You can review and manage supported permissions through Android's
-        system settings. You can decline optional permissions, although
-        some features may not work without them. You can stop using the app
-        by uninstalling it.
+        You can review and manage available application permissions through
+        your Android device settings. You may decline optional permissions,
+        although features that depend on them may not function as intended.
+      </p>
+      <p>
+        You can stop using LumaOS Pro at any time by uninstalling the
+        application.
       </p>
     </section>
 
-    <section>
+    <section id="retention">
       <h2>6. Data Retention and Deletion</h2>
       <p>
         Information stored locally may remain on your device until it is
-        deleted by the app, cleared through Android settings, or removed
-        when the app is uninstalled, subject to Android behavior and the
-        implementation.
+        deleted by the application, cleared through device settings, or
+        affected by uninstalling the application.
       </p>
       <p>
-        If the app or its integrated services store information remotely,
-        the retention period and available deletion process must be
-        documented here.
+        Information handled by third-party services may be retained or
+        deleted according to those services' applicable policies and
+        procedures.
       </p>
     </section>
 
-    <section>
+    <section id="security">
       <h2>7. Security</h2>
       <p>
-        Reasonable measures should be used to protect information handled
-        by the application. No method of storage or transmission can be
-        guaranteed to be completely secure.
+        Reasonable safeguards are important for protecting information
+        handled by the application. However, no electronic storage or
+        transmission method can be guaranteed to be completely secure.
       </p>
     </section>
 
-    <section>
+    <section id="children">
       <h2>8. Children's Privacy</h2>
       <p>
-        LumaOS Pro is not intended to knowingly collect personal information
-        from children without the necessary safeguards and permissions.
-        The developer must ensure that the app's actual practices comply
-        with applicable laws and Google Play's policies.
+        LumaOS Pro is intended to be used in accordance with applicable
+        age requirements, privacy laws, and Google Play policies.
+        Information relating to children is handled in accordance with
+        applicable legal requirements.
       </p>
     </section>
 
-    <section>
-      <h2>9. Changes to This Policy</h2>
+    <section id="changes">
+      <h2>9. Changes to This Privacy Policy</h2>
       <p>
-        This Privacy Policy may be updated when the app's features or data
-        practices change. The revised policy will be published on this page
-        with an updated revision date.
+        This Privacy Policy may be revised to reflect changes to LumaOS Pro,
+        its features, or its privacy practices. Updates will be published
+        on this page, together with a revised date.
       </p>
     </section>
 
-    <section>
-      <h2>10. Contact</h2>
+    <section id="contact">
+      <h2>10. Contact Us</h2>
       <p>
-        For privacy questions or requests, contact the developer using
-        the support email listed on the official LumaOS Pro Google Play
-        Store listing.
-      </p>
-      <p>
-        Before publishing, replace this contact method with a monitored
-        email address that you control.
+        If you have questions or concerns about this Privacy Policy, contact
+        the developer through the support contact information provided on
+        the official LumaOS Pro Google Play Store listing.
       </p>
     </section>
   </main>
