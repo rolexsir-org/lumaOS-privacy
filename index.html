@@ -1,334 +1,2039 @@
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b0b0f">
-  <meta name="description" content="Read the Privacy Policy for LumaOS Pro, a customizable Android launcher.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy Policy — LumaOS Pro</title>
+  <meta name="description" content="Privacy Policy for LumaOS Pro, an Android launcher: what it accesses, stores in LumaOS Vault, encrypts, sends to Android services and never collects. Effective 14 November 2026.">
+  <meta name="author" content="LumaOS Pro">
+  <meta name="theme-color" content="#0b0b0f">
+  <meta name="color-scheme" content="dark">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://rolexsir-org.github.io/lumaOS-privacy/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LumaOS Pro">
+  <meta property="og:title" content="Privacy Policy — LumaOS Pro">
+  <meta property="og:description" content="How LumaOS Pro for Android accesses, stores, encrypts and shares information — written against the shipping source code.">
+  <meta property="og:url" content="https://rolexsir-org.github.io/lumaOS-privacy/">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Privacy Policy — LumaOS Pro">
+  <meta name="twitter:description" content="How LumaOS Pro for Android accesses, stores, encrypts and shares information.">
 
   <style>
     :root {
       color-scheme: dark;
       --bg: #0b0b0f;
+      --bg-deep: #07070a;
       --surface: #14141b;
-      --text: #f4f2fa;
-      --muted: #aaa7b8;
+      --surface-2: #191922;
+      --surface-3: #1f1f2a;
+      --text: #f6f4fb;
+      --body: #d6d3e2;
+      --muted: #aca9bd;
       --accent: #c1aaff;
-      --border: #292733;
+      --accent-soft: #9d84e0;
+      --border: #2b2937;
+      --border-soft: #222130;
+      --note: #ffd9a8;
+      --note-bg: #241d13;
+      --note-border: #453620;
+      --radius: 18px;
+      --radius-sm: 12px;
+      --shadow: 0 18px 40px -24px rgb(0 0 0 / .8);
+      --measure: 74ch;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    *,
+    *::before,
+    *::after { box-sizing: border-box; }
 
     html {
       scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
     }
 
     body {
       margin: 0;
       background: var(--bg);
-      color: var(--text);
+      color: var(--body);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-      font-size: 16px;
-      line-height: 1.8;
+        Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: clamp(16px, 0.55vw + 14.6px, 17.5px);
+      line-height: 1.75;
+      text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
     }
 
-    header {
-      padding: 76px 24px 52px;
+    /* ---------- header ---------- */
+
+    .site-header {
+      padding: clamp(52px, 9vw, 92px) 22px clamp(38px, 6vw, 62px);
       text-align: center;
       border-bottom: 1px solid var(--border);
-      background: radial-gradient(
-        ellipse at top,
-        #29213e 0%,
-        #15121f 38%,
-        var(--bg) 76%
-      );
+      background:
+        radial-gradient(ellipse 90% 70% at 50% -10%, #2c2344 0%, #17131f 45%, var(--bg) 82%);
     }
 
     .brand {
-      margin-bottom: 18px;
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 7px 15px;
+      border: 1px solid #3a3350;
+      border-radius: 999px;
+      background: rgb(193 170 255 / .07);
       color: var(--accent);
-      font-size: 13px;
-      font-weight: 750;
-      letter-spacing: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3.4px;
       text-transform: uppercase;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(34px, 6vw, 52px);
+      color: var(--text);
+      font-size: clamp(31px, 6.2vw, 54px);
       font-weight: 700;
-      letter-spacing: -1.8px;
-      line-height: 1.2;
+      letter-spacing: -1.6px;
+      line-height: 1.14;
+      text-wrap: balance;
     }
 
-    .updated {
-      margin-top: 18px;
+    .standfirst {
+      max-width: 60ch;
+      margin: 20px auto 0;
       color: var(--muted);
-      font-size: 14px;
+      font-size: clamp(15px, 1.1vw, 17px);
+      line-height: 1.7;
     }
 
-    main {
-      width: min(780px, calc(100% - 36px));
-      margin: 48px auto 80px;
+    .doc-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 30px auto 0;
+      padding: 0;
+      list-style: none;
+      max-width: 72ch;
     }
 
-    .introduction {
-      padding: 24px;
+    .doc-meta li {
+      display: flex;
+      gap: 8px;
+      align-items: baseline;
+      padding: 8px 14px;
       border: 1px solid var(--border);
-      border-radius: 18px;
-      background: var(--surface);
-      color: #d8d4e4;
-      font-size: 17px;
+      border-radius: 999px;
+      background: rgb(20 20 27 / .72);
+      font-size: 13.5px;
+      line-height: 1.4;
     }
 
-    section {
-      margin-top: 38px;
-      scroll-margin-top: 24px;
+    .doc-meta b {
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: .3px;
+      text-transform: uppercase;
+      font-size: 11px;
     }
 
-    h2 {
-      margin: 0 0 12px;
-      font-size: 21px;
-      font-weight: 650;
-      letter-spacing: -0.4px;
+    .doc-meta span { color: var(--text); font-weight: 600; }
+
+    /* ---------- layout ---------- */
+
+    .shell {
+      width: min(1180px, 100% - 28px);
+      margin: clamp(30px, 4vw, 56px) auto clamp(56px, 8vw, 96px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: clamp(26px, 3vw, 46px);
+      align-items: start;
     }
 
-    p {
+    .lede { grid-area: glance; }
+    .toc { grid-area: contents; min-width: 0; }
+    .sections { grid-area: policy; min-width: 0; }
+
+    @media (min-width: 1000px) {
+      .shell {
+        grid-template-columns: 268px minmax(0, 1fr);
+        grid-template-areas:
+          "glance   glance"
+          "contents policy";
+      }
+
+      .toc { position: sticky; top: 24px; }
+    }
+
+    /* ---------- cards ---------- */
+
+    .lede,
+    .toc {
+      padding: clamp(18px, 2.2vw, 26px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--surface-2), var(--surface));
+      box-shadow: var(--shadow);
+    }
+
+    .lede { margin-bottom: clamp(24px, 3vw, 34px); }
+
+    .lede h2 {
       margin: 0 0 14px;
-      color: #cbc8d6;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
     }
 
-    ul {
-      margin: 12px 0 18px;
-      padding-left: 24px;
-      color: #cbc8d6;
+    .lede p { margin: 0 0 14px; color: var(--text); font-size: 1.02em; }
+    .lede p:last-child { margin-bottom: 0; }
+
+    .facts {
+      display: grid;
+      gap: 1px;
+      margin: 18px 0 0;
+      padding: 0;
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: var(--border-soft);
+      list-style: none;
     }
 
-    li {
-      margin-bottom: 12px;
-      padding-left: 4px;
+    .facts li {
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 0 12px;
+      padding: 13px 15px;
+      background: var(--bg-deep);
+      font-size: .95em;
+      line-height: 1.6;
     }
 
-    strong {
+    .facts b {
+      grid-column: 2;
       color: var(--text);
       font-weight: 650;
     }
 
-    a {
+    .facts .mark {
+      grid-row: 1 / span 2;
+      font-size: 1.05em;
+      line-height: 1.5;
       color: var(--accent);
+      font-weight: 700;
+    }
+
+    .facts .no { color: #86e2b0; }
+    .facts .yes { color: var(--note); }
+
+    /* ---------- toc ---------- */
+
+    .toc h2 {
+      margin: 0 0 12px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .toc ol {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: toc;
+      font-size: .9em;
+      line-height: 1.5;
+    }
+
+    .toc li { counter-increment: toc; }
+
+    .toc a {
+      display: block;
+      padding: 6px 10px 6px 8px;
+      border-radius: 8px;
+      color: var(--muted);
       text-decoration: none;
+    }
+
+    .toc a::before {
+      content: counter(toc) ".";
+      display: inline-block;
+      min-width: 2.1em;
+      color: var(--accent-soft);
+      font-variant-numeric: tabular-nums;
+      font-weight: 650;
+    }
+
+    .toc a:hover,
+    .toc a:focus-visible {
+      background: var(--surface-3);
+      color: var(--text);
+    }
+
+    @media (max-width: 999px) {
+      .toc { padding: 16px 14px 18px; }
+
+      .toc ol {
+        columns: 2;
+        column-gap: 20px;
+        font-size: .86em;
+      }
+
+      .toc li { break-inside: avoid; }
+    }
+
+    @media (max-width: 460px) {
+      .toc ol { columns: 1; }
+    }
+
+    /* ---------- article ---------- */
+
+    .sections > section {
+      margin: 0 0 clamp(34px, 4vw, 50px);
+      padding: 0 0 clamp(24px, 3vw, 32px);
+      border-bottom: 1px solid var(--border-soft);
+      scroll-margin-top: 16px;
+    }
+
+    .sections > section:last-child { border-bottom: 0; }
+
+    h2 {
+      margin: 0 0 16px;
+      color: var(--text);
+      font-size: clamp(20px, 1.6vw + 12px, 26px);
+      font-weight: 700;
+      letter-spacing: -.5px;
+      line-height: 1.28;
+    }
+
+    h2 .num {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--accent-soft);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      margin: clamp(22px, 2.4vw, 30px) 0 10px;
+      color: var(--text);
+      font-size: clamp(16.5px, .8vw + 13px, 19px);
+      font-weight: 650;
+      letter-spacing: -.2px;
+      line-height: 1.4;
+    }
+
+    h4 {
+      margin: 20px 0 6px;
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 650;
+      letter-spacing: .2px;
+    }
+
+    p { margin: 0 0 14px; max-width: var(--measure); }
+
+    ul,
+    ol {
+      margin: 12px 0 18px;
+      padding-left: 22px;
+      max-width: var(--measure);
+    }
+
+    li { margin: 0 0 9px; padding-left: 3px; }
+    li::marker { color: var(--accent-soft); }
+    li > ul, li > ol { margin: 9px 0 0; }
+
+    strong, b { color: var(--text); font-weight: 650; }
+
+    em { color: var(--text); font-style: normal; font-weight: 600; }
+
+    code, kbd {
+      padding: .12em .42em;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg-deep);
+      color: #ded9f2;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: .87em;
       overflow-wrap: anywhere;
     }
 
-    a:hover {
-      text-decoration: underline;
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2.5px;
+      overflow-wrap: anywhere;
     }
 
-    footer {
-      padding: 26px 20px;
-      border-top: 1px solid var(--border);
+    a:hover { color: #d8c8ff; }
+
+    .back {
+      display: inline-block;
+      margin-top: 6px;
       color: var(--muted);
-      text-align: center;
-      font-size: 13px;
+      font-size: .82em;
+      font-weight: 600;
+      text-decoration: none;
     }
 
-    @media (max-width: 600px) {
-      header {
-        padding: 58px 20px 40px;
-      }
+    .back:hover { color: var(--accent); text-decoration: underline; }
 
-      main {
-        margin-top: 28px;
-      }
+    /* ---------- callouts ---------- */
 
-      .introduction {
-        padding: 20px;
-        font-size: 16px;
-      }
+    .note,
+    .limits,
+    .keybox {
+      margin: 20px 0 0;
+      padding: 16px 18px;
+      border-radius: var(--radius-sm);
+      max-width: var(--measure);
+      font-size: .95em;
+      line-height: 1.68;
+    }
 
-      section {
-        margin-top: 30px;
-      }
+    .note {
+      border: 1px solid var(--note-border);
+      background: var(--note-bg);
+      color: #f0e2cd;
+    }
 
-      h2 {
-        font-size: 19px;
-      }
+    .limits,
+    .keybox {
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--accent);
+      background: var(--surface);
+      color: var(--body);
+    }
+
+    .note > :last-child,
+    .limits > :last-child,
+    .keybox > :last-child { margin-bottom: 0; }
+
+    .note-title,
+    .limits-title {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+
+    .note-title { color: var(--note); }
+    .limits-title { color: var(--accent); }
+
+    /* ---------- tables ---------- */
+
+    .table-wrap {
+      margin: 18px 0 6px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .9em;
+      line-height: 1.6;
+    }
+
+    caption {
+      padding: 13px 15px 0;
+      caption-side: top;
+      text-align: left;
+      color: var(--muted);
+      font-size: .92em;
+    }
+
+    th, td {
+      padding: 11px 15px;
+      border-bottom: 1px solid var(--border-soft);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    thead th {
+      background: var(--surface-3);
+      color: var(--text);
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    tbody tr:last-child th,
+    tbody tr:last-child td { border-bottom: 0; }
+
+    tbody th {
+      color: var(--text);
+      font-weight: 650;
+      min-width: 12ch;
+    }
+
+    td ul { margin: 0; padding-left: 18px; }
+    td li { margin-bottom: 4px; }
+
+    @media (max-width: 640px) {
+      th, td { padding: 10px 12px; }
+    }
+
+    /* ---------- footer / a11y ---------- */
+
+    .site-footer {
+      padding: 34px 22px 52px;
+      border-top: 1px solid var(--border);
+      background: var(--bg-deep);
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .site-footer p { max-width: 68ch; margin: 0 auto 10px; }
+    .site-footer a { font-weight: 600; }
+
+    .skip {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      z-index: 10;
+      padding: 12px 18px;
+      border-radius: 0 0 12px 0;
+      background: var(--accent);
+      color: #17102a;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .skip:focus {
+      left: 0;
+      outline: 2px solid #fff;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    .sections > section:target, .sections > section:target h2 {
+      animation: flash 1.9s ease-out 1;
+      border-radius: var(--radius-sm);
+    }
+
+    @keyframes flash {
+      0%, 45% { background: rgb(193 170 255 / .1); }
+      100% { background: transparent; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
       }
+    }
+
+    @media print {
+      :root { color-scheme: light; }
+      body { background: #fff; color: #14131a; font-size: 11pt; }
+      .site-header { background: none; padding: 0 0 14pt; border-color: #bbb; }
+      h1, h2, h3, .brand, .lede p, strong, b, em, td li { color: #14131a; }
+      .standfirst, .doc-meta li, .toc, .back { display: none; }
+      .shell { width: auto; display: block; margin: 16pt 0; }
+      .lede, .note, .limits, .keybox, .table-wrap, table {
+        background: none; border-color: #bbb; box-shadow: none;
+      }
+      .facts li { background: none; }
+      a { color: #14131a; text-decoration: underline; }
+      .sections > section { break-inside: avoid-page; border-color: #ddd; }
+      .site-footer { background: none; border: 0; color: #444; }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="brand">LumaOS Pro</div>
+  <a class="skip" href="#top-of-policy">Skip to the policy</a>
+
+  <header class="site-header" id="top">
+    <p class="brand">LumaOS&nbsp;Pro</p>
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: October 30, 2026</p>
+    <p class="standfirst">
+      LumaOS Pro is an Android home-screen launcher with a built-in encrypted
+      Vault. Everything it needs to do its job happens on your phone. This policy
+      says exactly what it reads, what it writes to disk, what it hands to Android
+      and to other apps, and what it never touches.
+    </p>
+    <ul class="doc-meta">
+      <li><b>Effective</b><span>14 November 2026</span></li>
+      <li><b>Version</b><span>1.5.0</span></li>
+      <li><b>Package</b><span>com.lumaos.pro.launcher</span></li>
+      <li><b>Replaces</b><span>Policy dated 30 October 2026</span></li>
+    </ul>
   </header>
 
-  <main>
-    <div class="introduction">
-      LumaOS Pro is an Android launcher designed to provide a personalized
-      home-screen experience. This Privacy Policy explains how information
-      is accessed, used, stored, and shared when you use the application.
+  <main class="shell" id="top-of-policy">
+    <section class="lede" aria-labelledby="lede-h">
+        <h2 id="lede-h">The short version</h2>
+        <p>
+          LumaOS Pro does not have an account, a server, or a database of you. It
+          does not sell, publish or upload your launcher data, and the app is built
+          without the Android <code>INTERNET</code> permission, so the app process
+          cannot open a network connection of its own.
+        </p>
+        <ul class="facts">
+          <li><span class="mark no">✓</span><b>Nothing is uploaded by LumaOS Pro.</b> No analytics, advertising or crash-reporting SDK is present in the build.</li>
+          <li><span class="mark no">✓</span><b>No location, contacts, SMS, call-log or calendar access.</b> Those permissions are not in the manifest and no API for them is called.</li>
+          <li><span class="mark no">✓</span><b>Vault content is encrypted before it is written</b> and sits in storage Android never backs up.</li>
+          <li><span class="mark yes">!</span><b>Three things can still leave the app,</b> because Android — not LumaOS Pro — moves them: your speech (to the speech-recognition app you chose), your settings (to your Google account backup, if you enable it), and anything you deliberately export.</li>
+        </ul>
+        <div class="note" role="note">
+          <span class="note-title">Read this if you use only one part</span>
+          <p>
+            If you enable the optional Vault, Focus Protection or notification
+            access, sections <a href="#vault">6</a>, <a href="#focus">7</a> and
+            <a href="#notifications">8</a> describe capabilities that go beyond an
+            ordinary launcher. They are off by default, each is granted by you in
+            Android's own settings, and each keeps working in a reduced form if you
+            take it back.
+          </p>
+        </div>
+      </section>
+
+    <nav class="toc" id="contents" aria-label="Table of contents">
+      <h2 id="contents-title">Contents</h2>
+      <ol aria-labelledby="contents-title">
+        <li><a href="#who-we-are">Who we are &amp; how to reach us</a></li>
+        <li><a href="#information">What we collect, access &amp; store</a></li>
+        <li><a href="#installed-apps">Installed apps &amp; identifiers</a></li>
+        <li><a href="#personalization">Personalisation &amp; layout</a></li>
+        <li><a href="#diagnostics">Local diagnostics &amp; usage history</a></li>
+        <li><a href="#vault">LumaOS Vault</a></li>
+        <li><a href="#focus">Focus Protection &amp; accessibility</a></li>
+        <li><a href="#notifications">Notification access</a></li>
+        <li><a href="#music">Music widget &amp; media sessions</a></li>
+        <li><a href="#voice">Voice commands &amp; speech providers</a></li>
+        <li><a href="#camera-mic">Camera, microphone &amp; wallpaper</a></li>
+        <li><a href="#storage">Storage, retention &amp; deletion</a></li>
+        <li><a href="#android-backup">Android backup vs device transfer</a></li>
+        <li><a href="#sharing">Sharing &amp; external components</a></li>
+        <li><a href="#network">Network, analytics &amp; advertising</a></li>
+        <li><a href="#security">Security &amp; its limits</a></li>
+        <li><a href="#choices">Your choices &amp; revoking access</a></li>
+        <li><a href="#children">Children's privacy</a></li>
+        <li><a href="#rights">International users &amp; your rights</a></li>
+        <li><a href="#changes">Changes to this policy</a></li>
+      </ol>
+    </nav>
+
+      <div class="sections">
+      <section id="who-we-are" aria-labelledby="who-we-are-h">
+        <h2 id="who-we-are-h"><span class="num">Section 1</span>Who we are and how to reach us</h2>
+        <p>
+          This policy is provided by the developer of <strong>LumaOS Pro</strong>,
+          the Android launcher distributed under the package name
+          <code>com.lumaos.pro.launcher</code> through Google Play. It covers the
+          LumaOS Pro Android app and the LumaOS Pro surfaces inside it — the home
+          screen, app drawer, widgets, Quick Controls, the notification shade,
+          Wallpaper Studio, Focus Protection and LumaOS Vault.
+        </p>
+        <p>
+          It does not cover the Android operating system, your device
+          manufacturer's software, Google Play, the speech-recognition provider on
+          your device, or any other app you open from LumaOS Pro. Those are
+          governed by their own policies.
+        </p>
+        <h3>Contact for privacy questions</h3>
+        <p>
+          The developer's support and privacy contact is published on the
+          <strong>LumaOS Pro listing on Google Play</strong>, under
+          <em>Developer contact</em>. Use that address for privacy questions, access
+          or deletion requests, and complaints; mention "Privacy Policy" and the
+          app name so your message is routed correctly. If you are reading this page
+          outside Play, search Google Play for <em>LumaOS Pro</em> to reach the
+          listing.
+        </p>
+        <p>
+          Because LumaOS Pro does not hold your data on a server, most requests are
+          answered instantly by a control on your own device —
+          <a href="#choices">section 17</a> lists them. Where a request needs a
+          human, we aim to respond within 30 days.
+        </p>
+        <div class="note" role="note">
+          <span class="note-title">No data-protection officer</span>
+          <p>
+            LumaOS Pro is published by an individual developer and no data
+            protection officer has been appointed. Applicable law may still give you
+            rights; <a href="#rights">section 19</a> explains how to use them here.
+          </p>
+        </div>
+        <p><a class="back" href="#contents">↑ Back to contents</a></p>
+      </section>
+
+      <section id="information" aria-labelledby="information-h">
+        <h2 id="information-h"><span class="num">Section 2</span>Information collected, accessed, generated and stored</h2>
+        <p>
+          A launcher is useful precisely because it reads your device. The list below
+          is the complete set of things LumaOS Pro can access, generate or receive.
+          Nothing here is sent to the developer; the "where it goes" column is the
+          whole story.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <caption>What LumaOS Pro reads or generates, and where it lives</caption>
+            <thead>
+              <tr>
+                <th scope="col">Category</th>
+                <th scope="col">Specific data</th>
+                <th scope="col">Why</th>
+                <th scope="col">Where it goes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Installed apps</th>
+                <td>
+                  <ul>
+                    <li>Package names and launcher activity names</li>
+                    <li>App labels (display names) and icons</li>
+                    <li>Android user-profile serial for work/child profiles</li>
+                  </ul>
+                </td>
+                <td>Draw the app drawer, home grid, dock, folders and search</td>
+                <td>Memory, plus your layout choices in app-private storage. Never uploaded.</td>
+              </tr>
+              <tr>
+                <th scope="row">App changes</th>
+                <td>Package added / replaced / removed broadcasts</td>
+                <td>Keep the drawer current without polling</td>
+                <td>Memory only; the layout is updated on your device.</td>
+              </tr>
+              <tr>
+                <th scope="row">Your launcher setup</th>
+                <td>Themes, colours, grid, dock, gestures, icon pack, wallpaper selections, folders, per-profile home pages, hidden and pinned app lists, widget placements</td>
+                <td>Restore your home screen exactly as you left it</td>
+                <td><code>DataStore</code> in app-private storage; eligible for Android backup (<a href="#android-backup">section 13</a>).</td>
+              </tr>
+              <tr>
+                <th scope="row">Launch history</th>
+                <td>Per app: how many times you opened it from LumaOS Pro, last time, a decayed score, and how many of those launches fell in each hour of the day</td>
+                <td>Suggested and frequent rows, "most used" sorting, smart folders</td>
+                <td>Local SQLite file. Not in Android cloud backup, not in the app's own backup file.</td>
+              </tr>
+              <tr>
+                <th scope="row">Performance measurements</th>
+                <td>Home-screen startup duration; LumaOS Pro's own process memory (PSS); system available memory and Android's low-memory flag; each optimisation action you ran and what it changed</td>
+                <td>Show real numbers on the diagnostics dashboard instead of a marketing claim</td>
+                <td>Local SQLite file, capped. Never uploaded, never logged remotely.</td>
+              </tr>
+              <tr>
+                <th scope="row">Device state for Quick Controls and widgets</th>
+                <td>Battery level and charging state; Wi-Fi on/off; brightness; rotation-lock; volume; torch; media session of whatever is playing</td>
+                <td>Show and change the toggles you tap</td>
+                <td>Read on demand and rendered to screen. Not stored.</td>
+              </tr>
+              <tr>
+                <th scope="row">Notifications</th>
+                <td>Only if you grant notification access: app label and icon, title, text lines, conversation entries, timestamps, available actions</td>
+                <td>Render the shade cards and return a reply to the app that posted it</td>
+                <td>Memory only, while the shade is open. Never written to disk, never logged (<a href="#notifications">section 8</a>).</td>
+              </tr>
+              <tr>
+                <th scope="row">Foreground app</th>
+                <td>Only during a focus session, and only if you enable it: the package name of the app that just came to the foreground</td>
+                <td>Send you back when a self-restricted app opens</td>
+                <td>Used inside the decision and dropped. Not persisted, not logged, not transmitted (<a href="#focus">section 7</a>).</td>
+              </tr>
+              <tr>
+                <th scope="row">Voice</th>
+                <td>Recognised text for one command, after you invoke it</td>
+                <td>Open an app or switch profile on request</td>
+                <td>Handled and discarded. Not retained. Audio goes to Android's speech service, not to us (<a href="#voice">section 10</a>).</td>
+              </tr>
+              <tr>
+                <th scope="row">Vault content</th>
+                <td>Photos, scanned PDFs, audio recordings, files, notes and vault item names you create inside LumaOS Vault</td>
+                <td>Store them privately for you</td>
+                <td>Encrypted before writing, in a directory Android never backs up (<a href="#vault">section 6</a>).</td>
+              </tr>
+              <tr>
+                <th scope="row">Vault security bookkeeping</th>
+                <td>Key wrappers, salt, iteration count, failed-attempt counter and lockout deadline, and up to 200 vault activity events of type "imported, exported, backed up, restored, PIN changed…"</td>
+                <td>Unlock, rate-limit, and show you what happened</td>
+                <td>Ciphertext or non-secret files inside the Vault directory. Activity events record action types, never the content you stored.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>What LumaOS Pro does not collect</h3>
+        <p>There is no account to sign in to, so LumaOS Pro has no name, e-mail address, phone number or user ID for you. It does not request or read:</p>
+        <ul>
+          <li><strong>Location</strong> — no location permission is declared and no location or geofence API is called. Context profiles such as Work and Study are driven by your own schedule, not by where you are.</li>
+          <li><strong>Contacts, call log, SMS</strong> — not requested, not read.</li>
+          <li><strong>Calendar</strong> — not requested, not read.</li>
+          <li><strong>Your photo library</strong> — there is no broad storage or media-library permission. LumaOS Pro sees a photo only when you pick it in Android's own document picker, or when you tap the Vault camera or scanner.</li>
+          <li><strong>Advertising ID, Android ID, device serial, hardware identifiers</strong> — not requested and not read. The only identifier LumaOS Pro uses internally is Android's user-profile serial, which exists so that a work-profile app can be told apart from the same app in your personal profile.</li>
+          <li><strong>Keystrokes, screen text, passwords</strong> — no API that could read them is used; the accessibility service used by Focus Protection has content retrieval disabled (<a href="#focus">section 7</a>).</li>
+          <li><strong>Crash reports and telemetry</strong> — there is no reporting service to send them to. Diagnostics stay on your device.</li>
+        </ul>
+        <p><a class="back" href="#contents">↑ Back to contents</a></p>
+      </section>
+
+      <section id="installed-apps" aria-labelledby="installed-apps-h">
+        <h2 id="installed-apps-h"><span class="num">Section 3</span>Installed applications and package identifiers</h2>
+        <p>
+          To draw a home screen, a launcher must know what is installed. LumaOS Pro
+          enumerates your apps through <code>LauncherApps</code>, the Android API
+          designed for launchers, and asks Android for the launchable activities in
+          each profile on the device. From each it keeps the package name, the main
+          activity's name, the label shown under the icon, and the icon itself.
+        </p>
+        <p>
+          LumaOS Pro deliberately does <strong>not</strong> hold the
+          <code>QUERY_ALL_PACKAGES</code> permission. Its app list comes from the
+          launcher API, and the remaining lookups are limited by a
+          <em>package-visibility</em> declaration that lets it see only apps that
+          answer specific intents: launchable apps, browsers and web search, the Play
+          Store, the settings screens Quick Controls links to, and apps that
+          advertise themselves as icon packs. That declaration narrows what LumaOS Pro
+          can enumerate; it is not a permission and grants nothing extra.
+        </p>
+        <p>
+          LumaOS Pro also registers for Android's package add, replace and remove
+          broadcasts so the drawer stays accurate without a background poll. It does
+          not read those apps' data, files, storage, permissions or private state, and
+          it does not build a profile of what you own: the list exists to be drawn.
+        </p>
+        <h3>Uninstalling, and what LumaOS Pro cannot do to other apps</h3>
+          <ul>
+          <li>The <strong>Uninstall</strong> entry in an app's long-press menu fires
+            Android's standard <code>ACTION_DELETE</code> request. The confirmation
+            dialog you then see is Android's, and Android can decline or accept it.
+            The <code>REQUEST_DELETE_PACKAGES</code> permission exists only so that
+            shortcut can be offered; LumaOS Pro never removes an app on its own.</li>
+          <li>LumaOS Pro does not force-stop, clear data, disable or kill other
+            applications. It holds neither <code>KILL_BACKGROUND_PROCESSES</code> nor
+            a device-administrator binding, so it cannot suspend, hide or wipe another
+            app's state. The "optimiser" in LumaOS Pro only ever touches LumaOS Pro's
+            own caches and its own database — the scope is printed next to every
+            action in that screen for exactly this reason.</li>
+          <li>Hidden apps and Vault-hidden apps are a <strong>filter inside this
+            launcher</strong>. They are not uninstalled, disabled or made invisible to
+            Android, and they remain fully visible in Android's own Settings, in other
+            launchers and in the Play Store.</li>
+        </ul>
+        <p><a class="back" href="#contents">↑ Back to contents</a></p>
+      </section>
+
+      <section id="personalization" aria-labelledby="personalization-h">
+        <h2 id="personalization-h"><span class="num">Section 4</span>Launcher personalisation, themes, folders and home-screen layout</h2>
+        <p>
+          Everything you configure is stored on your device in a single
+          <code>DataStore</code> preferences file inside LumaOS Pro's private
+          directory: <code>files/datastore/lumaos_settings.preferences_pb</code>.
+          Android sandboxes that file away from other apps. It holds roughly sixty
+          settings, grouped like this:
+        </p>
+        <ul>
+          <li><strong>Theme and appearance</strong> — theme mode and theme ids for light, dark and scheduled switching, accent and background colour overrides, typography, icon shape and style, motion and effects preferences, the backdrop, and whether wallpaper colours drive the palette.</li>
+          <li><strong>Grid and drawer</strong> — column and row counts, icon size, label visibility, text scale, drawer sort and presentation, category grouping, dock style, and whether suggestions are on.</li>
+          <li><strong>Layout</strong> — the placement of every icon, folder, widget and page, stored once per context profile (Work, Study, Personal, Sleep) so switching profiles rearranges the screen.</li>
+          <li><strong>Gestures</strong> — what swipe up, swipe down, double-tap, long-press, swipe left/right and pinch do.</li>
+          <li><strong>App visibility per profile</strong> — pinned apps and drawer-hidden apps. The list of apps hidden from search and behind a lock moved into the encrypted Vault index; it is no longer a plain setting.</li>
+          <li><strong>Context engine</strong> — per-profile schedules, which profiles send you a notification when they take effect, which profiles should set Do Not Disturb, per-profile wallpaper and theme, and whether Focus Protection is on for a profile with which apps restricted.</li>
+          <li><strong>Focus bookkeeping</strong> — the length you chose for an emergency unlock, and a transient deadline recording when that unlock expires. The deadline is device-local and is deliberately not part of any backup.</li>
+          <li><strong>Wallpaper Studio</strong> — your favourites and the active wallpaper id, with references to your own imported photos kept out of backup files.</li>
+        </ul>
+        <p>
+          <strong>Icon packs.</strong> If you choose one, LumaOS Pro reads that pack's
+          published icon mapping (the standard <code>appfilter.xml</code> inside the
+          pack's own resources) and draws icons from it. This is a local read of
+          another app's public resources; nothing is sent to the icon pack, and the
+          pack receives no data about you or your other apps.
+        </p>
+        <p>
+          <strong>Living icons.</strong> The animated icon set ships inside the app
+          package as image assets. Nothing is downloaded to obtain them, and the
+          "premium" themes and the premium trio are ordinary bundled themes selected
+          locally — LumaOS Pro contains no billing library and makes no purchase
+          calls.
+        </p>
+        <p>
+          <strong>Derived wallpaper image in the cache.</strong> To keep the glass
+          effects smooth, LumaOS Pro pre-renders a very small, heavily blurred
+          derivative of your current wallpaper and caches it as a PNG in its own cache
+          directory (<code>cacheDir/luma_wp_blur_&lt;hash&gt;.png</code>), so the blur
+          does not have to be recomputed after every restart. If your wallpaper is a
+          personal photo, this is a tiny blurred version of it sitting in the app's
+          cache. Cache files are not backed up by Android, are replaced when the
+          wallpaper changes, and you can remove them at any time with
+          <em>Settings → Optimiser → Clear LumaOS Pro cache</em> or Android's
+          <em>Clear cache</em>.
+        </p>
+        <p><a class="back" href="#contents">↑ Back to contents</a></p>
+      </section>
+
+      <section id="diagnostics" aria-labelledby="diagnostics-h">
+        <h2 id="diagnostics-h"><span class="num">Section 5</span>Local diagnostics and usage history</h2>
+        <p>
+          Two small SQLite databases live in LumaOS Pro's private
+          <code>databases</code> directory. Both exist so that the app can show you
+          evidence instead of adjectives. Neither is ever uploaded, and neither is
+          included in the settings file that Android backs up.
+        </p>
+        <h3>Launch history — <code>lumaos_launches.db</code></h3>
+        <ul>
+          <li><strong>What is recorded:</strong> one row per app, holding the component identifier, how many times you opened it, the timestamp of the most recent launch, a score that decays with a seven-day half-life, and a 24-bucket histogram of the hours of day you launched it in.</li>
+          <li><strong>What is not:</strong> only launches made <em>through LumaOS Pro</em> are counted — a tap on the home screen, dock, drawer, a folder, a search result, a gesture or a voice command. LumaOS Pro does not hold the usage-stats permission, so it cannot see app use that happens elsewhere, and it never invents history for an app with no record.</li>
+          <li><strong>How to stop it:</strong> recording follows the same switch as the drawer's suggestions. Turning suggestions off in Settings stops new rows being written. Clear history in <em>Settings → Privacy</em> deletes what exists, and pruning removes rows for apps you uninstall.</li>
+        </ul>
+        <h3>Diagnostics — <code>lumaos_diagnostics.db</code></h3>
+        <ul>
+          <li><strong>Optimisation events</strong> (at most the 200 most recent): which action ran, whether you triggered it or a rule did, whether it completed, how long it took, LumaOS Pro's own process memory before and after, bytes freed, and whether a re-measurement actually showed an improvement. That last flag is only ever true when a real measurement got smaller — which is why an action can honestly tell you it did nothing.</li>
+          <li><strong>Startup samples</strong> (at most the 30 most recent): how long the home screen took to become interactive.</li>
+          <li><strong>Read live, never stored:</strong> system available memory, Android's low-memory flag, and battery level, used to drive the dashboard and the battery widget.</li>
+        </ul>
+        <p>
+          <em>Storage note:</em> LumaOS Pro records its own memory usage through
+          Android's <code>Debug/ActivityManager</code> APIs, which report only this
+          process; it does not read other apps' memory. The "Compact diagnostics
+          database" action rebuilds LumaOS Pro's own database, and it can only be run
+          by you from the Optimiser screen.
+        </p>
+        <p><a class="back" href="#contents">↑ Back to contents</a></p>
+      </section>
+
+      <section id="vault" aria-labelledby="vault-h">
+        <h2 id="vault-h"><span class="num">Section 6</span>LumaOS Vault</h2>
+        <p>
+          LumaOS Vault is an optional private space inside the launcher for photos,
+          videos you import, files, notes, audio recordings and scanned documents. It
+          is not a separate app: it has no launcher icon, every Vault screen is closed
+          to other apps, and reaching it means going through
+          <em>Settings → Vault</em> or the Security Centre and unlocking.
+        </p>
+
+        <h3>6.1 Encryption at rest: AES-256-GCM</h3>
+        <ul>
+          <li>Each item gets its own random 256-bit data key, generated from the Android platform's cryptographic random source. Payloads are encrypted with <strong>AES-256-GCM</strong> — a 96-bit random IV and a 128-bit authentication tag per chunk — through a chunked streaming construction, so a large video is never held in memory whole.</li>
+          <li>Object names on disk are random 32-character hex identifiers with a <code>.obj</code> extension. Real file names, captions, folder names, item counts and settings live in a separate metadata index that is itself encrypted with AES-256-GCM under a key derived for that purpose alone.</li>
+          <li>Keys are separated by use through HKDF-SHA-256 (RFC 5869): one key for objects, one for the metadata index, one per wrapped object key, one for backup. Deriving the object-key wrapper with the object's own id means a wrapped key cannot be swapped onto a different item.</li>
+          <li>GCM's authentication tag is what makes tampering visible: modified ciphertext, a modified IV, a truncated file or a wrong key all fail the same way, and Vault never acts on plaintext it has not authenticated.</li>
+          <li>Every primitive is the one Android's platform provider supplies — <code>javax.crypto</code> and <code>java.security</code>. There is no hand-written cipher and no third-party cryptographic library in the build.</li>
+        </ul>
+
+        <h3>6.2 The master key, the PIN and the recovery key</h3>
+        <p>
+          At the top sits a random 256-bit <strong>Vault master key</strong>. It is
+          generated from random bytes — never derived from your PIN, your name, your
+          phone number, a device identifier or anything else about you — and it is held
+          in RAM only while the Vault is unlocked. Three independent
+          <em>wrapped</em> copies of it are written to a small JSON file; each is
+          ordinary AES-256-GCM ciphertext, and the wrapped copies are what let any one
+          of the three paths recover the same key.
+        </p>
+        <ul>
+          <li><strong>PIN.</strong> The master key is wrapped under
+            <code>PBKDF2-HMAC-SHA-256</code> of your PIN with a random 256-bit salt. The
+            iteration count is benchmarked on your device when the Vault is created and
+            recorded in the file, so it can be raised later without locking existing
+            Vaults out; the count is refused if it is below 100,000 (a downgrade) or
+            above 4,000,000 (a denial-of-service against you through an edited file).
+            Your PIN is never stored, in any form, and the derived key is overwritten as
+            soon as the wrap or unwrap finishes. PINs must be 6–12 digits; repeated,
+            sequential and low-diversity PINs are refused even at length.</li>
+          <li><strong>Recovery key.</strong> A separate 256-bit secret from the random
+            source, wrapped with HKDF-SHA-256 for domain separation. It is shown to you
+            exactly once, as 54 characters in 14 groups using an alphabet that avoids
+            the letters people misread, with a checksum so a single mistyped character
+            is rejected instead of silently unlocking nothing. Because it is full
+            entropy, it needs no slow KDF — and because it is independent of the device,
+            of biometrics and of the PIN, it is the only path that still works after a
+            factory reset or on a new phone.</li>
+          <li><strong>Failed attempts.</strong> A counter and lockout deadline are kept
+            in a small file that must be readable before you unlock. It is signed with an
+            HMAC key that lives in the Android Keystore and cannot be exported, which
+            means editing the counter or deleting the file does not reset your delay —
+            deleting it on a Vault that has been used stores the maximum penalty
+            immediately. The delay is capped at 15 minutes. That file holds no key
+            material and is not a substitute for the encryption; it exists to make
+            guessing tedious.</li>
+        </ul>
+
+        <h3>6.3 Android Keystore and biometric unlock</h3>
+        <p>
+          The optional biometric path uses a 256-bit AES-GCM key generated inside the
+          <strong>Android Keystore</strong> with these properties, which the hardware- or
+          OS-backed keystore enforces rather than the app:
+        </p>
+        <ul>
+          <li><code>setUserAuthenticationRequired(true)</code> with a zero-second
+            authentication validity — every single use requires a fresh biometric
+            authentication, performed by Android's own
+            <code>BiometricPrompt</code> with the cipher handed to it as a crypto
+            object.</li>
+          <li><code>setInvalidatedByBiometricEnrollment(true)</code> — enrolling a new
+            fingerprint or face destroys the key, so a newly added biometric cannot
+            unlock your Vault.</li>
+          <li><code>setUnlockedDeviceRequired(true)</code> on Android 10 and later — the
+            device must be unlocked as well as the biometric verified.</li>
+          <li>The key is non-exportable: its bytes are never returned to the app, so
+            they cannot be copied, backed up or read from the file system.</li>
+        </ul>
+        <p>
+          Biometric unlock is <strong>an accelerant, not a replacement</strong>: the
+          PIN is always present, and turning biometrics off (or re-enrolling, or
+          Android's Keystore clearing the key) simply removes that wrapper. The app
+          never sees, stores, transmits or compares a fingerprint image or face model —
+          it receives a "verified / not verified" result from Android, and the
+          <code>USE_BIOMETRIC</code> / <code>USE_FINGERPRINT</code> permissions exist
+          only to ask Android for that result. On Android 8.0 and 8.1 (API 26–27), where
+          the platform biometric prompt does not exist, the Vault honestly reports
+          biometrics as unavailable and uses the PIN.
+        </p>
+
+        <h3>6.4 Private camera, scanner and microphone</h3>
+        <ul>
+          <li><strong>Camera, photos.</strong> Capture runs inside LumaOS Pro on the
+            Camera2 API: frames are assembled into JPEG bytes in memory and fed straight
+            into the encrypting stream. Nothing is written to the camera folder, to
+            <code>Pictures</code>, into Android's media database, or even to a
+            temporary file. No image exists unencrypted at any point.</li>
+          <li><strong>Scanner.</strong> Pages are held as compressed JPEG bytes while
+            you review them, then composed into a multi-page PDF with Android's
+            <code>PdfDocument</code> in memory and stored as one encrypted item.</li>
+          <li><strong>Video.</strong> Recording video into the Vault is not
+            implemented, because a platform encoder cannot write into an encrypted
+            stream without a plaintext scratch file. Importing and playing back videos
+            that already exist is supported.</li>
+          <li><strong>Microphone.</strong> Android's media recorder cannot append into
+            ciphertext either, so a recording is written to a scratch file inside the
+            Vault's own staging directory and encrypted the moment you stop. That
+            scratch file is the only plaintext the Vault ever puts on disk; it is
+            removed after encryption, and anything left behind by a crash is overwritten
+            and deleted at the next unlock (see the limit below). The recording never
+            appears in a music or recordings folder or in the media database.</li>
+          <li><strong>Both permissions are requested at the moment of use</strong>, from
+            the screen that needs them. Refuse the microphone and the recorder explains
+            itself while every other Vault surface keeps working; refuse the camera and
+            the scanner and private camera say so, with existing content still
+            readable. Neither is needed to install or run LumaOS Pro, and neither is
+            used anywhere else in the app — except the Quick Controls torch, which
+            toggles the flash through Android's camera-manager torch API and needs no
+            camera permission at all.</li>
+        </ul>
+
+        <h3>6.5 Encrypted backup and restore</h3>
+        <p>
+          Vault backup is a single container file you start yourself, written to a
+          destination you pick in Android's document picker: a folder, an SD card, a
+          USB stick, or a cloud-drive app you already use. The format carries only
+          ciphertext and what a key search needs: a magic header, the salt, the master
+          key wrapped under your <strong>recovery</strong> key, the encrypted metadata
+          index, every encrypted payload byte for byte, and a SHA-256 integrity trailer.
+        </p>
+        <ul>
+          <li>The body is deliberately not encrypted a second time — its parts are
+            already AES-256-GCM ciphertext under keys the container does not include.
+            Without your recovery key, the file is a large opaque blob, so the
+            destination does not have to be trusted.</li>
+          <li>The recovery wrapper is used rather than the PIN wrapper because a backup
+            has to outlive the phone. If any payload the index references is missing,
+            the whole backup aborts: LumaOS Pro will not report success while quietly
+            leaving part of your Vault unprotected.</li>
+          <li>"Verified" means the finished file was read back from the destination and
+            its digest and structure were checked. The Security Centre only shows a
+            protected badge when that verification exists and the remembered destination
+            is still reachable — and it will tell you Pending, Failed, Destination lost
+            or Not configured when it isn't.</li>
+          <li><strong>Restoring</strong> asks for the recovery key, decrypts into a
+            sibling directory, checks the digest and the recovered key, and only then
+            swaps the directory into place and asks you to set a PIN for this device. If
+            any step fails, the previous Vault is put back. A restore changes nothing
+            about the master key, so objects never need re-encrypting.</li>
+          <li>A backup of the launcher's <em>settings</em> is a separate thing: a plain
+            JSON file that you export or import from Settings (see
+            <a href="#android-backup">section 13</a>). It never contains Vault content.</li>
+        </ul>
+
+        <h3>6.6 Export, deletion and storage limits</h3>
+        <ul>
+          <li><strong>Export</strong> is the one operation that makes Vault content less
+            private, so it is always explicit and always goes through Android's save-a-copy
+            picker, with confirmation text that says so. From the moment the bytes are
+            written they are ordinary files, visible to galleries, other apps and any
+            cloud sync you have on. Nothing in the Vault exports silently.</li>
+          <li><strong>Deleting an item</strong> rewrites the encrypted index first — which
+            removes the object's wrapped data key — then overwrites the payload with zeros,
+            flushes it and unlinks it. What actually makes the content unrecoverable is
+            that the key is gone from every generation of the index, not the overwrite.
+            Leftovers from an interrupted import or deletion are found as orphans and
+            shredded the same way at the next unlock, and staging scratch files are
+            overwritten and removed at both unlock and lock.</li>
+          <li><strong>There is no "delete the whole Vault" button.</strong> Removal is
+            per item, or all of it at once the Android way — <em>Clear data</em> in system
+            settings, or uninstalling, which are the same paths that remove an app's files
+            on any device. Those broad deletions unlink the files rather than
+            overwriting them, which is a further reason the note on physical erasure
+            below applies to them.</li>
+          <li><strong>Capacity</strong> is bounded by your free space, not by a quota:
+            there is no LumaOS Pro storage limit and no cloud tier. A restore refuses to
+            start unless enough space remains to complete it, keeping 16 MB in reserve so
+            a restore cannot fill the partition, and the container reader caps every
+            length it trusts — up to 64 MB of index, 200,000 objects, 1 TB declared — because
+            a backup file is treated as hostile input until its integrity check passes. A
+            note larger than 2 MB is not read into memory in one piece.</li>
+          <li><strong>Auto-lock.</strong> The Vault locks when the screen turns off, when
+            you leave it, when your chosen inactivity window (30 s, 1, 3, 5 or 10
+            minutes; 3 minutes by default) expires, or if the process is killed. The
+            moment Vault content would be visible in the recent-apps switcher it is
+            replaced by an opaque shield, and every Vault screen sets
+            <code>FLAG_SECURE</code>, so Android excludes them from screenshots, screen
+            recording and the recents preview. Decoded images and thumbnails exist in RAM
+            only and are dropped on lock.</li>
+          <li><strong>Notes and renaming</strong> deliberately disable keyboard
+            prediction and autofill, so a private item name is not learned by your input
+            method. Copying text from a note marks the clipboard entry as sensitive on
+            Android 13 and later, which stops previews and clipboard history for it.</li>
+        </ul>
+
+        <div class="limits" role="note">
+          <span class="limits-title">The limits, stated plainly</span>
+          <p>
+            Vault protects data at rest on a device that is working correctly. It does
+            not, and does not claim to, protect you from: a rooted or otherwise
+            compromised Android system, which can read app-private storage and can dump
+            keys from memory while the Vault is unlocked; a keylogger, malicious
+            keyboard, screen recorder or another accessibility service that can see your
+            PIN as you type it; someone holding the phone <em>while the Vault is
+            unlocked</em>; or privileged system software such as a corporate
+            device-management profile.
+          </p>
+          <p>
+            <strong>Deletion is not physical erasure.</strong> Overwriting a file is
+            best-effort: Android devices use wear-levelled flash with a translation layer,
+            so the blocks that held the old contents may keep them for an indeterminate
+            time, and a forensic image of a chip could recover bytes that were never
+            overwritten in place. We do not claim otherwise; what makes a deleted Vault
+            item unreadable in practice is that its data key is no longer recoverable.
+          </p>
+          <p>
+            <strong>Memory zeroing is best-effort too.</strong> LumaOS Pro overwrites
+            every key buffer it owns, on every path it can, but the runtime may have
+            copied an array before or during use, so "wiped" means "overwritten here",
+            not "provably gone".
+          </p>
+          <p>
+            <strong>A 6-digit PIN is one million candidates.</strong> PBKDF2 makes each
+            guess expensive; it does not enlarge the space. Longer PINs are recommended
+            for that reason, not as a formality. No one at LumaOS Pro can reset your PIN,
+            recover your Vault, or issue you a new recovery key — if you lose both the PIN
+            and the recovery key, the content is unrecoverable by design.
+          </p>
+          <p>
+            <strong>Not yet implemented:</strong> scheduled automatic Vault backups, and
+            video capture into the Vault. Hidden apps remains a launcher-side filter.
+          </p>
+        </div>
+        <p><a class="back" href="#contents">↑ Back to contents</a></p>
+      </section>
+
+      <section id="focus" aria-labelledby="focus-h">
+        <h2 id="focus-h"><span class="num">Section 7</span>Focus Protection and the optional Accessibility Service</h2>
+        <p>
+          Focus Protection restricts apps you have told LumaOS Pro to restrict, during
+          Work or Study sessions. It has two layers, and only the second one touches a
+          sensitive Android capability.
+        </p>
+        <h3>Layer 1 — launcher interception, no permission required</h3>
+        <p>
+          Every launch route inside LumaOS Pro — home icons, drawer rows, search
+          results, folders, smart folders, shortcuts, gestures and voice commands — is
+          checked against your restriction list before Android is asked to start
+          anything. This needs no permission and no special access of any kind, and it
+          always runs while a focus session is active. It is why "not granted" is a
+          supported state for the next layer rather than a broken one.
+        </p>
+        <h3>Layer 2 — "Stronger blocking", an accessibility service you enable by hand</h3>
+        <p>
+          Launches LumaOS Pro did not make — a tap on a notification, a swipe through
+          Recents, another app opening a link in a restricted app — are invisible to
+          layer 1. Layer 2 covers them with an Android <em>accessibility service</em>
+          named "LumaOS Focus Protection". It is declared in the app but
+          <strong>off</strong>, and Android will not let LumaOS Pro turn it on: only you
+          can, in Android's own Accessibility settings, after you have seen the
+          disclosure screen.
+        </p>
+        <p>
+          Accessibility access is a serious grant and we will not describe it as
+          harmless. In general, an accessibility service can observe window content and
+          input across the whole device. What makes this one narrow is the
+          <em>configuration it is registered with</em>:
+        </p>
+        <ul>
+          <li>It subscribes to exactly one event type,
+            <code>typeWindowStateChanged</code>. It does not request window-content
+            events, view- or touch-exploration, or gesture feedback.</li>
+          <li><strong><code>canRetrieveWindowContent</code> is set to
+            <code>false</code></strong> in the service configuration, so the service
+            cannot request the text or structure of what is on screen even if it wanted
+            to.</li>
+          <li>The only field the code reads from any event is
+            <code>event.packageName</code> — the name of the app that just came to the
+            foreground. Node trees are never traversed. Nothing resembling screen text,
+            a password field, a keystroke, or anything inside another app is reachable
+            through this path.</li>
+          <li>The event is used to answer one question — "is this package on the
+            restriction list for the session that is currently active?" — and the answer
+            is recomputed from your settings at each event. Nothing is cached,
+            persisted, added to a log or transmitted. The single log line records that
+            an intervention happened, not what was on screen. LumaOS Pro has no network
+            permission, so "transmitted" is not available to it in any case.</li>
+        </ul>
+        <p>
+          When it does intervene, LumaOS Pro presses Home through Android's own global
+          action and then shows its restriction screen. A guard limits this to one
+          intervention per app per two seconds, so a blocked app can never stack
+          screens. Android's system apps, the dialer and telecom stack, Settings, the
+          package installer and the permission controller are always exempt, so you can
+          always receive a call and always uninstall an app.
+        </p>
+        <h3>What it cannot do, and what happens when you revoke it</h3>
+        <ul>
+          <li>It is <strong>package-level</strong> enforcement. It cannot see inside an
+            app, so it cannot block a tab, a feed, Reels or Shorts, and it makes no
+            claim to.</li>
+          <li>Split screen and free-form windows are only partly covered: the focused
+            window's app is observed, while an already-visible restricted app in the
+            unfocused pane is not pushed away. If LumaOS Pro is not your default
+            launcher, Android's background-start rules can refuse the restriction
+            screen; you are still bounced out of the app, and the reason is shown in
+            Settings.</li>
+          <li>Android, a battery saver or an aggressive OEM task manager can stop the
+            service. There is no API for an app to rebind its own accessibility
+            service, so LumaOS Pro does not re-prompt or attempt to re-enable it
+            silently. Events simply stop, and layer 1 keeps blocking launches made
+            inside the launcher.</li>
+          <li><strong>Revoking the grant is a supported steady state.</strong> Status is
+            re-checked whenever Settings is opened; the row reads "Off"; nothing else
+            changes, no data needs clearing, and no state can be stranded.</li>
+          <li>Both surfaces offer an <strong>emergency unlock</strong> for a length you
+            configure (1–60 minutes, 5 by default). The unlock records which profile
+            granted it and a wall-clock deadline, so it cannot leak from Work into
+            Study and cannot outlive its deadline.</li>
+        </ul>
+        <div class="note" role="note">
+          <span class="note-title">Why not other mechanisms</span>
+          <p>
+            LumaOS Pro does not request the usage-stats permission, which would need
+            timed polling to be timely, and does not use Android's device-owner
+            mechanisms (lock task, app suspension) at all — those require a managed
+            device provisioning a normal Play launcher cannot assume. The honest
+            summary: LumaOS Pro helps you stay out of apps you asked it to keep you
+            out of, on your own device, and cannot override Android for you.
+          </p>
+        </div>
+        <p><a class="back" href="#contents">↑ Back to contents</a></p>
+      </section>
+
+      <section id="notifications" aria-labelledby="notifications-h">
+        <h2 id="notifications-h"><span class="num">Section 8</span>Notification access and notification handling</h2>
+        <p>
+          LumaOS Pro declares one notification listener. Android grants that binding to
+          a single component the user switches on by hand in
+          <em>Android Settings → Notifications → Notification access</em>; the app
+          cannot request it at runtime and cannot enable it itself.
+        </p>
+        <div class="keybox" role="note">
+          <p>
+            <strong>One grant, two features.</strong> The same listener powers the
+            Luma Glass music widget and the launcher's pull-down notification shade.
+            Switching it on for either switches it on for both. This is worth
+            understanding before you enable it: <strong>Android grants a notification
+            listener access to every notification on the device</strong>, not only
+            music notifications, and the platform treats that access as sensitive for
+            good reason.
+          </p>
+        </div>
+        <h3>What the shade does with a notification</h3>
+        <ul>
+          <li>It reads the posting app's label and icon, the title, body, sub-text and
+            expanded text, conversation message lines, the timestamp, and the action
+            list — including the reply field's key — because drawing a card that can be
+            tapped, dismissed or replied to requires exactly those fields.</li>
+          <li>It reads nothing else. Notification content is
+            <strong>not</strong> written to preferences, to a database, to a file or to
+            a log; it is not uploaded (LumaOS Pro holds no network permission). Logs
+            record only that something failed, such as "a notification could not be
+            read", never its content.</li>
+          <li>At most the 60 newest notifications are held, in RAM, in one bounded
+            projection; entries beyond that are dropped. When a notification is removed
+            on the system side, its card goes away with it, and when the listener
+            disconnects the reference to Android is cleared.</li>
+          <li>Content an app marks as secret stays hidden, and a group summary is never
+            listed next to the notifications it summarises.</li>
+          <li><strong>Replying</strong> hands your text straight to the posting app's
+            own pending intent for the action you tapped — the same route the system
+            shade uses. LumaOS Pro keeps no copy and never fabricates a "sent" state:
+            the card says "reply sent" only when Android accepted it.</li>
+        </ul>
+        <p>
+          The music half of the same grant uses it differently: it queries Android for
+          active media sessions and reads no notification content at all
+          (<a href="#music">section 9</a>).
+        </p>
+        <h3>Declining and revoking</h3>
+        <p>
+          Declining is a complete answer. The shade shows its "access not granted"
+          state instead of cards and offers the route to Android's settings; the music
+          widget shows that it cannot see what is playing; the rest of the launcher
+          behaves exactly as before. Revoking later stops delivery immediately —
+          Android tears the binding down, and there is nothing left on disk to clean,
+          because nothing was written.
+        </p>
+        <p>
+          This grant is separate from two other Android settings that are sometimes
+          confused with it: the notification-posting permission
+          (<code>POST_NOTIFICATIONS</code>, used only for the launcher's own context
+          alerts) and Do Not Disturb access, which is its own screen in Android
+          settings.
+        </p>
+        <p><a class="back" href="#contents">↑ Back to contents</a></p>
+      </section>
+
+      <section id="music" aria-labelledby="music-h">
+        <h2 id="music-h"><span class="num">Section 9</span>Music widget and Android media sessions</h2>
+        <p>
+          The Luma Glass music widget is an ordinary Android home-screen widget. It
+          shows what is playing and lets you control it. It is built on Android's
+          <code>MediaSessionManager</code>, which is the same mechanism the system's own
+          media controls use, and which Android only lets an app query once it holds
+          notification access — that is why <a href="#notifications">section 8</a>'s
+          grant is the one gate here.
+        </p>
+        <ul>
+          <li><strong>Read:</strong> the active sessions for this component; for the
+            session being shown, the player's app label, the track title, artist or
+            album artist (falling back to the display subtitle), playback state, the
+            position and duration for the progress bar, and the control actions the
+            player declares it supports. Artwork is taken from the metadata bitmap when
+            one is attached, otherwise from the album-art URI that the player app
+            exposes.</li>
+          <li><strong>Written where:</strong> nowhere. This data is held in memory long
+            enough to draw the widget and is released when the last widget is removed,
+            when playback ends, or when access is revoked.</li>
+          <li><strong>One Android caveat worth knowing:</strong> a widget is rendered by
+            the widget host. The track text and artwork travel inside an Android
+            <code>RemoteViews</code> object, so the widget host — LumaOS Pro when it is
+            your launcher, otherwise the home app you placed the widget in — can cache
+            what it displays. That is Android's widget mechanism, not a LumaOS Pro
+            upload.</li>
+          <li><strong>Controls</strong> are sent back to the playing app as media key
+            events, exactly as a headset button would be. Play, pause, next, previous
+            and seek reach the player and reach nothing else. The widget's own control
+            receiver is not exported, so other apps cannot forge LumaOS Pro's
+            play/pause broadcasts.</li>
+        </ul>
+        <h3>The battery widget</h3>
+        <p>
+          The companion battery widget shows the battery level and whether a charger is
+          connected, read from Android's battery statistics and refreshed on Android's
+          own widget cadence (at most every 30 minutes plus the charger events). It
+          reads no other app and stores nothing.
+        </p>
+        <p><a class="back" href="#contents">↑ Back to contents</a></p>
+      </section>
+
+      <section id="voice" aria-labelledby="voice-h">
+        <h2 id="voice-h"><span class="num">Section 10</span>Voice commands and third-party speech-recognition providers</h2>
+        <p>
+          Voice commands are optional, and they are only ever listening when you have
+          just asked them to. Invoking a command starts Android's standard speech
+          recogniser, which is implemented not by LumaOS Pro but by a
+          <strong>speech-recognition provider installed on your device</strong> —
+          commonly Google, sometimes the device manufacturer's. LumaOS Pro receives no
+          audio and captures nothing itself.
+        </p>
+        <ol>
+          <li>The recogniser UI takes over and captures your speech. That component,
+            not this launcher, is responsible for the microphone.</li>
+          <li><strong>Whether your speech is processed on the device or sent to the
+            provider's servers is decided by that provider and your Android settings.</strong>
+            Some providers offer offline recognition; others upload audio, language
+            preferences and device details for recognition. LumaOS Pro cannot see,
+            control or change that, and its own lack of a network permission does not
+            apply to the provider's process.</li>
+          <li>LumaOS Pro receives the recognised text — up to three alternatives — and
+            the entry sheet tells you so before you speak, in the prompt
+            "Android speech recognition will process your voice."</li>
+          <li>The text is matched locally against your app list and the profile
+            commands, the command runs, and the transcript is discarded. Nothing is
+            retained, appended to history, written to the diagnostics database or
+            logged with its content.</li>
+        </ol>
+        <p>
+          That provider's privacy statement and your device's voice settings govern the
+          audio itself and whatever the provider keeps. If that trade is not one you
+          want to make, do not invoke the feature; nothing else in LumaOS Pro uses the
+          microphone, and voice recognition is never running in the background. If no
+          recognition service is installed, the launcher says so rather than trying
+          another route.
+        </p>
+        <p><a class="back" href="#contents">↑ Back to contents</a></p>
+      </section>
+
+      <section id="camera-mic" aria-labelledby="camera-mic-h">
+        <h2 id="camera-mic-h"><span class="num">Section 11</span>Camera, microphone and wallpaper features</h2>
+        <p>
+          Three capabilities in LumaOS Pro are backed by Android permissions that users
+          notice. None of them is required, none is requested at install time, and each
+          is asked for on the screen that uses it.
+        </p>
+        <h3>Camera</h3>
+        <ul>
+          <li>Used only by the Vault's private camera and document scanner, described in
+            <a href="#vault">section 6.4</a>. Every shutter press produces ciphertext;
+            no photo is saved to the gallery, the camera roll, or Android's media
+            database, and no preview frame is written to a temporary file.</li>
+          <li>LumaOS Pro does not record video, does not use the camera for
+            face detection, and does not attach location to anything it captures.</li>
+          <li>The Quick Controls <strong>torch</strong> tile is not camera capture. It
+            switches the flash through Android's camera-manager torch API, which needs
+            no camera permission; if another app is using the camera, the tile reports
+            that instead of taking the camera over.</li>
+        </ul>
+        <h3>Microphone</h3>
+        <ul>
+          <li>Used only by the Vault recorder. Audio goes to a scratch file in the
+            Vault's staging directory and is encrypted as soon as you stop. Recording
+            never starts on its own; there is no voice-activated trigger, and the
+            launcher's voice commands do not use this permission because they are
+            handled by Android's speech provider
+            (<a href="#voice">section 10</a>).</li>
+        </ul>
+        <h3>Wallpaper</h3>
+        <ul>
+          <li><strong>Setting a wallpaper</strong> uses Android's
+            <code>SET_WALLPAPER</code> permission, which lets LumaOS Pro ask the system
+            to apply a wallpaper. Wallpaper Studio applies your chosen image to the
+            home screen, the lock screen or both.</li>
+          <li><strong>Your own photos.</strong> When you pick a photo in Wallpaper
+            Studio, LumaOS Pro copies it into its own private storage (up to 12
+            imports, 12 MB each) under a random name, so the wallpaper survives
+            independently of the file you picked. The original is not modified or
+            deleted. The copy is byte-for-byte the image you chose, which means
+            <strong>any metadata embedded in it comes along — including location
+            metadata if your camera wrote it</strong>. LumaOS Pro itself reads one
+            EXIF field, orientation, so the image is displayed the right way up; it
+            does not read the rest of the metadata.</li>
+          <li>Those copies are <strong>not</strong> included in Android's cloud backup
+            or device-to-device transfer, and photo references are stripped from the
+            app's own JSON backup file. You can remove any of them inside Wallpaper
+            Studio. Note that once a wallpaper is applied, Android stores and presents
+            its own copy, and the system or your device maker controls its crop and
+            retention; LumaOS Pro does pass Android a request not to back up a custom
+            photo wallpaper, and some devices honour it.</li>
+          <li>The small blurred cache derivative in the app's cache directory is
+            described in <a href="#personalization">section 4</a>.</li>
+        </ul>
+        <p><a class="back" href="#contents">↑ Back to contents</a></p>
+      </section>
+
+      <section id="storage" aria-labelledby="storage-h">
+        <h2 id="storage-h"><span class="num">Section 12</span>Data storage, retention and deletion</h2>
+        <p>
+          LumaOS Pro stores data in three places, all of them inside its own sandbox on
+          your device: <code>files/datastore/</code> for settings and layouts,
+          <code>databases/</code> for launch history and diagnostics, and
+          <code>no_backup/vault/</code> for everything the Vault holds. Imported
+          wallpaper photos sit in <code>files/wallpaper_images/</code> and transient
+          render data in the cache directory. There is no LumaOS Pro server, so there
+          is no server-side retention period to state.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <caption>Retention and deletion, by location</caption>
+            <thead>
+              <tr>
+                <th scope="col">Where</th>
+                <th scope="col">What</th>
+                <th scope="col">How long</th>
+                <th scope="col">How to delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><code>files/datastore/</code></th>
+                <td>Settings, themes, layouts, gestures, schedules, restriction lists</td>
+                <td>Until you change them</td>
+                <td>Change them in Settings; or Android <em>Storage → Clear data</em>; or uninstall</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>databases/</code></th>
+                <td>Launch history; capped diagnostics history</td>
+                <td>Rows decay and are pruned when apps disappear; caps are 200 events and 30 startup samples</td>
+                <td><em>Settings → Privacy → Clear launch history</em>; the Optimiser can compact the diagnostics database; uninstalling removes both</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>files/wallpaper_images/</code></th>
+                <td>Your imported wallpaper copies</td>
+                <td>Until you remove them</td>
+                <td>Delete in Wallpaper Studio</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>cacheDir</code></th>
+                <td>Small blurred wallpaper derivative for the glass effects</td>
+                <td>Replaced when the wallpaper changes</td>
+                <td><em>Optimiser → Clear LumaOS Pro cache</em>, or Android's <em>Clear cache</em></td>
+              </tr>
+              <tr>
+                <th scope="row"><code>no_backup/vault/</code></th>
+                <td>Encrypted Vault objects, encrypted index, key wrappers, lockout bookkeeping</td>
+                <td>Until you delete them; nothing here is ever backed up</td>
+                <td>Delete items inside the Vault, or remove the whole directory with Android's <em>Clear data</em> or an uninstall. Deleted items lose their key; see the erasure limits in <a href="#vault">section 6.6</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          <strong>Uninstalling</strong> removes all of the above: Android deletes the
+          app's private directory, including the databases, wallpaper copies, cache and
+          the Vault. LumaOS Pro keeps no copy anywhere else, so there is nothing for you
+          to ask us to delete afterwards — which is also why we cannot restore it for
+          you. Before you uninstall, export what you want: a settings backup for the
+          launcher, and a Vault backup file for private content, since a Vault whose PIN
+          and recovery key are both lost cannot be reopened.
+        </p>
+        <p>
+          <strong>Clearing data</strong> in Android settings has the same effect on
+          LumaOS Pro's files without removing the app. Android's own
+          "Delete account data" and Play's data-deletion requests apply to data held by
+          a developer; here, that is nothing — but if you use a Google-account-backed
+          Android backup, the backup that Google holds for you is managed through your
+          Google account settings, not through this app.
+        </p>
+        <p><a class="back" href="#contents">↑ Back to contents</a></p>
+      </section>
+
+      <section id="android-backup" aria-labelledby="android-backup-h">
+        <h2 id="android-backup-h"><span class="num">Section 13</span>Android cloud backup versus device-to-device transfer</h2>
+        <p>
+          Android offers two copy-carrying mechanisms, and they are not the same thing.
+          Both are controlled by <strong>you, in Android settings</strong>, and neither
+          is a LumaOS Pro upload — the app has no network permission. It is Android's
+          own backup agent that reads what the app's backup rules allow and hands it to
+          your Google account transport, or to the migration tool during a device
+          setup.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <caption>What LumaOS Pro's backup rules make eligible</caption>
+            <thead>
+              <tr>
+                <th scope="col">Mechanism</th>
+                <th scope="col">Eligible content under LumaOS Pro's rules</th>
+                <th scope="col">Turned off by</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Android cloud backup<br>(Android 12 and later; the legacy rules on 11 and below are the same set)</th>
+                <td>The settings and layout file in <code>files/datastore/</code>. Nothing else: the rules name no other path, and once a backup rule lists inclusions everything not listed is excluded. Launch history, diagnostics, wallpaper photo copies, the cache and the entire Vault are outside the included set.</td>
+                <td>Android <em>Settings → System → Backup</em>, per-app, or entirely</td>
+              </tr>
+              <tr>
+                <th scope="row">Device-to-device transfer<br>(a direct switch during setup)</th>
+                <td>The same settings and layout file. LumaOS Pro's rules also name a databases path for this route, intending to carry launch history and diagnostics; note that <a href="#backup-caveat">the caveat below</a> applies.</td>
+                <td>Declining migration in Android's setup flow</td>
+              </tr>
+              <tr>
+                <th scope="row">LumaOS Pro's own backup file</th>
+                <td>A JSON file you export yourself from Settings, containing whitelisted settings, themes, gestures, context schedules, hidden-app lists and home layouts for every profile. Widget ids, device state, photo and wallpaper references and launch history are stripped, and restore refuses any key LumaOS Pro does not recognise with the right type.</td>
+                <td>Always explicit — nothing writes this file on its own</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          <strong>The Vault is excluded from every one of these routes.</strong> Its
+          files live under <code>no_backup/</code>, which Android does not back up or
+          transfer whatever a rules file says, and no rule in either of the app's two
+          backup-configuration files names the Vault location — a build test is wired to
+          fail if one ever does. Vault content reaches another device only through the
+          encrypted container file you create yourself
+          (<a href="#vault">section 6.5</a>).
+        </p>
+        <h3 id="backup-caveat">What this means for you</h3>
+        <ul>
+          <li>Your home layout, theme and settings are the thing most likely to move to
+            a new phone through your Google account backup. They describe how your phone
+            looks and which apps you use — they do not contain messages, media or
+            Vault content. If you would rather that not be backed up, turn off Android
+            backup, or turn off backup for this app, or clear LumaOS Pro's data before
+            your next backup runs.</li>
+          <li>Where the settings land, and for how long, is governed by your Google
+            account and Google's backup terms, not by this app. Manage or delete them in
+            your Android/device-backup settings; LumaOS Pro cannot do it for you, and
+            cannot see them once they are there.</li>
+          <li>The <em>app's</em> own backup file is plain JSON — readable text, not
+            encrypted. It is written only where you tell Android to write it, so treat
+            that file as you would any document containing a list of your apps: keep it
+            somewhere you control, and delete copies you no longer need. Do not put it
+            in a shared folder.</li>
+          <li>Device-to-device transfer is Android's own path, and behaviour differs by
+            Android version, by OEM and by the tool you use (a cable, a Google
+            migration app, a manufacturer's clone tool). What is transferred is a
+            decision those components make.</li>
+        </ul>
+        <div class="note" role="note">
+          <span class="note-title">Technical caveat we are disclosing rather than glossing over</span>
+          <p>
+            The databases inclusion for device-to-device transfer points at a path that
+            does not match where Android keeps app databases, so it is likely that launch
+            history and diagnostics are <em>not</em> transferred on a direct switch even
+            though the rule intends them to be — and instead of a silent partial copy, a
+            new device simply re-measures. We are stating this rather than asserting a
+            behaviour we cannot verify from the source alone. If it matters to you:
+            history does not migrate either way, and nothing sensitive moves.
+          </p>
+        </div>
+        <p><a class="back" href="#contents">↑ Back to contents</a></p>
+      </section>
+
+      <section id="sharing" aria-labelledby="sharing-h">
+        <h2 id="sharing-h"><span class="num">Section 14</span>Third-party sharing and external Android components</h2>
+        <p>
+          "Sharing" for a launcher that cannot use the network means data crossing a
+          process boundary on your device. That happens in the ordinary course of
+          making a launcher work, and it is listed here in full. The publisher does not
+          sell your data and does not share it with advertisers or data brokers,
+          because the publisher does not receive it.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <caption>LumaOS Pro's hand-offs to other software</caption>
+            <thead>
+              <tr>
+                <th scope="col">Recipient</th>
+                <th scope="col">What it receives</th>
+                <th scope="col">When</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Android itself</th>
+                <td>Launch requests, wallpaper bitmaps, media-session queries, the notification binding, the accessibility binding, home-role requests</td>
+                <td>Whenever the app does anything visible</td>
+              </tr>
+              <tr>
+                <th scope="row">The app you tap</th>
+                <td>An intent to start it. Nothing about you is attached.</td>
+                <td>Every launch</td>
+              </tr>
+              <tr>
+                <th scope="row">Your speech-recognition provider</th>
+                <td>Your spoken audio and language preference, on the provider's terms</td>
+                <td>Only for a voice command you start (<a href="#voice">section 10</a>)</td>
+              </tr>
+              <tr>
+                <th scope="row">Browser / web-search app / Google Play</th>
+                <td>The text you typed in the drawer, when you deliberately choose the "search the web" or "search in Play" row</td>
+                <td>Only on that tap. A plain app launch sends nothing.</td>
+              </tr>
+              <tr>
+                <th scope="row">The app that posted a notification</th>
+                <td>Your reply text, through that app's own pending intent</td>
+                <td>Only when you reply in the shade</td>
+              </tr>
+              <tr>
+                <th scope="row">Playing media apps</th>
+                <td>Media key events (play, pause, next, previous, seek)</td>
+                <td>Only when you use the music widget or the media row</td>
+              </tr>
+              <tr>
+                <th scope="row">Third-party home-screen widgets</th>
+                <td>Their usual widget callbacks: an id, bounds and size options, plus an update request</td>
+                <td>When you place or resize one of their widgets</td>
+              </tr>
+              <tr>
+                <th scope="row">Icon packs</th>
+                <td>Nothing. LumaOS Pro reads the pack's published mapping locally.</td>
+                <td>While drawing icons</td>
+              </tr>
+              <tr>
+                <th scope="row">Android's backup transport</th>
+                <td>The settings and layout file, per <a href="#android-backup">section 13</a></td>
+                <td>Only if you leave backup enabled</td>
+              </tr>
+              <tr>
+                <th scope="row">A destination you chose</th>
+                <td>One exported Vault item, a Vault backup container, or the settings backup file</td>
+                <td>Only after you pick the location in Android's picker and confirm</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Components exposed to other apps</h3>
+        <p>
+          Android lets other apps start an app's screens and receivers only if those are
+          declared "exported". LumaOS Pro's exposure is deliberately tiny:
+        </p>
+        <ul>
+          <li><strong>Home screen.</strong> The launcher activity is exported because
+            Android itself must be able to start it — that is what a launcher is.</li>
+          <li><strong>Every Vault screen is not exported.</strong> No other app can start
+            the Vault's UI, drive its camera or recorder, or reach its content through a
+            component. There is no Vault intent filter and no share target, so
+            "send a file to the Vault" is not an attack surface other apps can reach;
+            importing happens from inside the Vault, through Android's picker.</li>
+          <li><strong>The accessibility service and notification listener</strong> are
+            exported in the sense that only Android may bind them — they are protected by
+            <code>BIND_ACCESSIBILITY_SERVICE</code> and
+            <code>BIND_NOTIFICATION_LISTENER_SERVICE</code>, so ordinary apps cannot
+            connect to them or push data into them.</li>
+          <li><strong>The music widget's control receiver and the launcher's own schedule
+            receiver are not exported</strong>, so a third-party broadcast cannot forge
+            a play/pause command or an internal re-evaluation. The boot receiver is
+            exported because only Android can deliver a boot signal; it starts or reads
+            nothing about you — it recomputes the next profile alarm.</li>
+          <li><strong>No content provider</strong> is exported. LumaOS Pro publishes no
+          database or file to other apps.</li>
+        </ul>
+        <p><a class="back" href="#contents">↑ Back to contents</a></p>
+      </section>
+
+      <section id="network" aria-labelledby="network-h">
+        <h2 id="network-h"><span class="num">Section 15</span>Network access, analytics and advertising</h2>
+        <ul>
+          <li><strong>No network permission.</strong> The manifest of LumaOS Pro does not
+            declare <code>INTERNET</code> or <code>ACCESS_NETWORK_STATE</code>. Without
+            it, code in this app cannot open a socket, resolve a host or use an HTTP
+            library. No networking dependency is present in the build, and the only URL
+            in the shipped code is a placeholder used to ask Android which browser to
+            offer you.</li>
+          <li><strong>No analytics SDK, no attribution SDK, no ad SDK, no crash
+            reporting, no feature-flag or push service.</strong> The app's runtime
+            dependencies are the AndroidX UI, lifecycle and DataStore libraries and
+            Kotlin coroutines, all of which are local. That is why this policy can say
+            "is not sent to a server" rather than "is not sent to us for a stated
+            purpose".</li>
+          <li><strong>No tracking pixels, no advertising ID, no cross-app tracking,</strong>
+            and nothing that resembles Google's Advertising ID being read or written.
+            Nothing in the app is used for personalisation beyond your own settings on
+            this device.</li>
+          <li><strong>Pages that open in a browser are outside this policy.</strong> When
+            you tap a web-search row or a link, that browser and the site it loads
+            follow their own rules.</li>
+          <li><strong>What Android does around the app is Android's business.</strong>
+            Even with no network permission here, the platform may sync your backup,
+            your Google account and your preferences; the speech provider may upload
+            audio; a notification's posting app may reach its own servers when you tap
+            it. Those flows belong to Google, your device maker and the apps you use,
+            and are governed by their policies.</li>
+        </ul>
+        <p><a class="back" href="#contents">↑ Back to contents</a></p>
+      </section>
+
+      <section id="security" aria-labelledby="security-h">
+        <h2 id="security-h"><span class="num">Section 16</span>Security practices, and their realistic limits</h2>
+        <p>
+          What LumaOS Pro does to protect the data it holds:
+        </p>
+        <ul>
+          <li><strong>Android's application sandbox.</strong> Settings, layouts, history
+            and diagnostics live in the app's private directory, which other apps cannot
+            read on an unmodified device.</li>
+          <li><strong>Encryption for the Vault specifically</strong> — AES-256-GCM with
+            per-item keys, an encrypted metadata index, a non-exportable Keystore key for
+            the optional biometric path, PIN stretching with PBKDF2, and rate limiting on
+            attempts (<a href="#vault">section 6.2</a>).</li>
+          <li><strong>Least privilege everywhere.</strong> Eight permissions, no network
+            permission, no device admin, no broad storage access, all non-essential
+            components unexported, screenshots blocked on private screens, and
+            notification content kept in memory only.</li>
+          <li><strong>Safe handling of untrusted input.</strong> Restores treat a backup
+            file as hostile until it has been length-checked and integrity-verified;
+            settings restores accept only whitelisted keys of the expected type, so a
+            hand-edited file cannot write an arbitrary value into the app's storage;
+            object paths are validated against a strict identifier pattern so no name can
+            escape the Vault's own directory.</li>
+          <li><strong>Release integrity.</strong> Release builds are minified and signed
+            with a private upload key held by the developer and kept out of source
+            control; a build with incomplete signing configuration is refused rather than
+            silently signed with a debug key.</li>
+          <li><strong>Care with credentials in memory.</strong> Key material and PIN text
+            are overwritten after use, buffers are wiped as they are released, and the
+            PIN entry path avoids immutable strings that the runtime cannot erase.</li>
+        </ul>
+        <div class="limits" role="note">
+          <span class="limits-title">The honest limits — what no app can promise</span>
+          <p>
+            <strong>No method of storage or transmission is absolutely secure,</strong>
+            and LumaOS Pro does not claim otherwise. Encryption strength is bounded by
+            the secret protecting it: a short or guessed PIN, a recovery key photographed
+            and left in a cloud album, or a backup file saved into a shared folder is the
+            weak link, not AES. If a device is rooted or its operating system is
+            otherwise compromised, anything the OS can do, an attacker can do — including
+            reading this app's private files and dumping keys from memory while the Vault
+            is open. A malicious keyboard, screen recorder, or another enabled
+            accessibility service can see what you type before encryption is involved.
+            Physical theft of an unlocked, unlocked-Vault phone is outside the model
+            entirely.
+          </p>
+          <p>
+            On the network side, the transport of Android backups is Android's and your
+            account provider's; LumaOS Pro neither controls nor observes it. No
+            independent auditor has assessed this app, and no certification is claimed.
+          </p>
+          <p>
+            If you are at genuine risk from a determined adversary — a journalist, an
+            activist, someone fleeing abuse — treat a launcher feature as convenience and
+            use dedicated, audited tools for material secrets. If your threat model
+            includes someone with your device and your technical sophistication, tell us
+            and we will be straight with you about what this does and does not cover.
+          </p>
+        </div>
+        <p><a class="back" href="#contents">↑ Back to contents</a></p>
+      </section>
+
+      <section id="choices" aria-labelledby="choices-h">
+        <h2 id="choices-h"><span class="num">Section 17</span>Your choices, controls and revoking access</h2>
+        <p>Every data practice in this policy has an off switch you can reach.</p>
+        <div class="table-wrap">
+          <table>
+            <caption>Your controls</caption>
+            <thead>
+              <tr>
+                <th scope="col">You can</th>
+                <th scope="col">Where</th>
+                <th scope="col">What happens after</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Stop launcher use</th>
+                <td>Android <em>Settings → Apps → Default apps → Home app</em></td>
+                <td>Android shows your previous launcher. LumaOS Pro keeps working as an ordinary app and stores nothing new about other apps' use.</td>
+              </tr>
+              <tr>
+                <th scope="row">Turn off suggestions and launch history</th>
+                <td>LumaOS Pro <em>Settings</em></td>
+                <td>No new rows are recorded. Clear what exists from <em>Settings → Privacy → Clear launch history</em>.</td>
+              </tr>
+              <tr>
+                <th scope="row">Clear diagnostics</th>
+                <td>LumaOS Pro <em>Settings → Diagnostics</em></td>
+                <td>Measurements are dropped; the dashboard shows that nothing has been recorded yet rather than filling in a number.</td>
+              </tr>
+              <tr>
+                <th scope="row">Revoke notification access</th>
+                <td>Android <em>Settings → Notifications → Notification access</em></td>
+                <td>The shade shows its not-granted state; the music widget stops seeing sessions; nothing was on disk to clean.</td>
+              </tr>
+              <tr>
+                <th scope="row">Revoke Focus Protection's accessibility service</th>
+                <td>Android <em>Settings → Accessibility → Downloaded apps → LumaOS Focus Protection</em></td>
+                <td>Foreground observation stops at once. Launcher-side blocking keeps working.</td>
+              </tr>
+              <tr>
+                <th scope="row">Revoke DND access</th>
+                <td>Android <em>Settings → Apps → Special app access → Do Not Disturb access</em></td>
+                <td>Context-based Do Not Disturb simply stops; LumaOS Pro does not retry or prompt.</td>
+              </tr>
+              <tr>
+                <th scope="row">Turn off camera or microphone</th>
+                <td>Android <em>Settings → Apps → LumaOS Pro → Permissions</em></td>
+                <td>The Vault camera, scanner and recorder explain that they cannot run. Everything else, including existing Vault content, keeps working.</td>
+              </tr>
+              <tr>
+                <th scope="row">Turn off notification posting</th>
+                <td>Android's permission prompt, or per-app notification settings</td>
+                <td>Context-change alerts stop. Nothing else changes.</td>
+              </tr>
+              <tr>
+                <th scope="row">Opt out of Android backup</th>
+                <td>Android <em>Settings → System → Backup</em></td>
+                <td>Nothing about LumaOS Pro's settings is sent by the backup agent from then on; existing backup data is managed in your Google account.</td>
+              </tr>
+              <tr>
+                <th scope="row">Lock the Vault and manage its secrets</th>
+                <td>LumaOS Pro <em>Settings → Vault → Security</em></td>
+                <td>Change the PIN, toggle biometrics, view or replace the recovery key, choose the auto-lock window, back up, restore, or delete items.</td>
+              </tr>
+              <tr>
+                <th scope="row">Erase everything</th>
+                <td>Android <em>Storage → Clear data</em>, or uninstall</td>
+                <td>All local files, including the Vault, are removed by Android. Unrecoverable afterwards, by us or by you.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Choosing not to grant something is always a valid configuration in LumaOS Pro.
+          No feature is held hostage behind an optional permission: the launcher is fully
+          usable with every special access declined, and each reduced feature says what
+          it cannot do rather than pretending.
+        </p>
+        <p><a class="back" href="#contents">↑ Back to contents</a></p>
+      </section>
+
+      <section id="children" aria-labelledby="children-h">
+        <h2 id="children-h"><span class="num">Section 18</span>Children's privacy</h2>
+        <p>
+          LumaOS Pro is a general-audience launcher. It is not directed at children, it
+          is not marketed to them, and it contains no age gate because it collects no
+          personal information from anyone — there is no account, no profile, no
+          messaging, no user-generated content shown to other people, and no advertising.
+          There is nothing here for a child to disclose.
+        </p>
+        <p>
+          It follows that LumaOS Pro does not knowingly collect, request or store
+          personal information from children. There is no audience-specific version of
+          the app, and nothing in it is designed to attract children; the age range shown
+          on the store listing, together with Android's own family and managed-device
+          controls, governs who can install and use it.
+        </p>
+        <p>Two practical notes for households and schools:</p>
+        <ul>
+          <li>A launcher does not restrict what a device can be used for. A child's
+            actual limits come from Android's Family Link or a parental-control app.
+            LumaOS Pro's Focus Protection is a self-management aid for the account that
+            sets it up — a determined teenager can undo it in Android settings unless a
+            parent has Android's own controls in place. It must not be relied on as
+            parental control.</li>
+          <li>If a child's device has a work or school profile, LumaOS Pro enumerates
+            apps across profiles so that they can be launched; it does not read
+            managed-profile data, and enforcement inside a managed profile remains
+            Android's.</li>
+          <li>If you believe a child's personal information has somehow reached us
+            through a support message, contact us through the Play listing and it will
+            be deleted; we hold nothing else, so there is nothing further to find.</li>
+        </ul>
+        <p><a class="back" href="#contents">↑ Back to contents</a></p>
+      </section>
+
+      <section id="rights" aria-labelledby="rights-h">
+        <h2 id="rights-h"><span class="num">Section 19</span>International users and applicable privacy rights</h2>
+        <p>
+          LumaOS Pro is offered worldwide through Google Play and has no regional
+          version. It is published by an individual developer, and it is not established
+          in every country where it can be downloaded. Where a privacy law applies to
+          you, its rights are practical here because so little leaves your phone:
+          <em>access</em> and <em>portability</em> are the screens and the export
+          functions described in this policy, <em>deletion</em> is clearing storage or
+          uninstalling, <em>rectification</em> is editing a setting, and
+          <em>restriction of processing</em> is turning the feature off.
+        </p>
+        <ul>
+          <li><strong>EEA, UK and similar laws (GDPR, UK GDPR).</strong> If this
+            activity falls within their scope for you, the relevant bases are your
+            consent for the optional capabilities and the performance of the app you
+            installed for the launcher functions; the processing is almost entirely on
+            your device. You have rights of access, rectification, erasure, restriction,
+            objection and portability, and the right to lodge a complaint with your
+            supervisory authority. There is no international transfer operated by
+            LumaOS Pro, because the app transfers nothing; the transfers you might see
+            are Android's backup, which your Google account controls. No automated
+            decision-making or profiling of a person takes place: the frecency and
+            suggestion scores are computed on your device, only for the purpose of
+            ordering your own app list, and are not used to make decisions about you.</li>
+          <li><strong>California (CCPA/CPRA).</strong> LumaOS Pro does not "collect"
+            personal information as that law defines it for a business that receives it:
+            nothing is transmitted to the developer, so nothing is sold, shared for
+            cross-context behavioural advertising, or disclosed for a business purpose.
+            There is therefore no "Do Not Sell or Share" request for us to act on. The
+            categories described in <a href="#information">section 2</a> are the full
+            list of what stays on your device.</li>
+          <li><strong>Brazil (LGPD), India (DPDP Act) and other frameworks.</strong> The
+            same position applies: the data subject's own device is where processing
+            happens, and the controls in
+            <a href="#choices">section 17</a> are how you exercise rights over it. If a
+            law you rely on requires a formal request channel, use the developer contact
+            on the Play listing, and we will handle it under the law applicable to us
+            and to you.</li>
+          <li><strong>Children's laws (COPPA, Age Appropriate Design Code and similar).</strong>
+            See <a href="#children">section 18</a>: no personal information is collected
+            from anyone, and the app is not directed at children.</li>
+          <li><strong>Accessibility and non-discrimination.</strong> This policy is
+            published as plain HTML with no script dependency, so it can be read by a
+            screen reader and zoomed without breaking, in line with the accessibility
+            expectations that apply to Android apps and their disclosures.</li>
+        </ul>
+        <p>
+          We do not claim to be a legal adviser, and this list is a description of how
+          the app's architecture meets common requirements rather than an assertion that a
+          specific regime applies to your situation.
+        </p>
+        <p><a class="back" href="#contents">↑ Back to contents</a></p>
+      </section>
+
+      <section id="changes" aria-labelledby="changes-h">
+        <h2 id="changes-h"><span class="num">Section 20</span>Changes to this policy</h2>
+        <p>
+          This page is the current, authoritative version of the LumaOS Pro privacy
+          policy. It is updated whenever the app's data practices change, and the
+          effective date at the top of the page is the date from which the current text
+          applies. This version takes effect on <strong>14 November 2026</strong> and
+          replaces the policy dated 30 October 2026, which described the launcher's data
+          handling in general terms and predated LumaOS Vault, Focus Protection,
+          notification access and the music widget.
+        </p>
+        <p>
+          A material change — a new permission, a new third-party hand-off, or any change
+          to what the Vault does — will be reflected here before the app build that
+          introduces it reaches Google Play, and Google Play's own update channels will
+          describe the change. Continued use of LumaOS Pro after an update means the
+          policy published at that time is the one that applies. Older versions are not
+          kept online; if you need the text that applied at a past date, ask through the
+          Play listing contact and we will supply it.
+        </p>
+        <h3>Summary of what this policy answers</h3>
+        <ul>
+          <li><strong>Does LumaOS Pro collect data about me?</strong> It reads your device
+            to be a launcher and writes to your device only. Nothing is sent to us.
+            <a href="#information">Section 2</a>.</li>
+          <li><strong>Is my Vault really private?</strong> Encrypted with keys that never
+            leave the device and stored where Android does not back up — with the limits
+            in <a href="#vault">section 6</a> stated rather than skipped.</li>
+          <li><strong>Why does a launcher want accessibility access?</strong> It doesn't
+            need it; only the optional Focus Protection layer uses it, with content
+            retrieval disabled. <a href="#focus">Section 7</a>.</li>
+          <li><strong>Can I use this without granting anything?</strong> Yes.
+            <a href="#choices">Section 17</a>.</li>
+          <li><strong>Who do I contact?</strong> The developer contact on the Google Play
+            listing. <a href="#who-we-are">Section 1</a>.</li>
+        </ul>
+        <p><a class="back" href="#contents">↑ Back to contents</a></p>
+      </section>
     </div>
-
-    <section id="introduction">
-      <h2>1. Introduction</h2>
-      <p>
-        Your privacy matters. This policy explains how LumaOS Pro handles
-        information in connection with its launcher features, personalization
-        options, and permissions. By using the application, you acknowledge
-        this policy.
-      </p>
-    </section>
-
-    <section id="information">
-      <h2>2. Information and Device Access</h2>
-      <p>
-        Depending on the features you use and the permissions you grant,
-        LumaOS Pro may access the following information:
-      </p>
-
-      <ul>
-        <li>
-          <strong>Installed applications:</strong> Application names, icons,
-          and package information used to display your app drawer and provide
-          launcher functionality.
-        </li>
-        <li>
-          <strong>Personalization settings:</strong> Themes, wallpapers,
-          icons, layouts, and other preferences used to customize your
-          experience.
-        </li>
-        <li>
-          <strong>Notifications:</strong> If you enable notification access,
-          notification content and related information may be processed to
-          provide notification-related features.
-        </li>
-        <li>
-          <strong>Device permissions:</strong> Additional permissions may be
-          required for specific features. These permissions are managed
-          through Android.
-        </li>
-      </ul>
-
-      <p>
-        The information accessible to the application depends on the
-        permissions granted, the Android version, and the features you use.
-      </p>
-    </section>
-
-    <section id="usage">
-      <h2>3. How Information Is Used</h2>
-      <p>
-        Information accessed by LumaOS Pro is used to provide launcher
-        functionality, display installed applications, apply your
-        personalization choices, remember supported preferences, and operate
-        features you choose to enable.
-      </p>
-      <p>
-        Information is handled according to the application's functionality
-        and the permissions you grant.
-      </p>
-    </section>
-
-    <section id="storage">
-      <h2>4. Information Storage and Sharing</h2>
-      <p>
-        Personalization preferences and other settings may be stored locally
-        on your device to maintain your customized experience.
-      </p>
-      <p>
-        Where information is processed or shared through integrated
-        third-party services, that processing is subject to the relevant
-        service's purpose and applicable privacy practices.
-      </p>
-      <p>
-        LumaOS Pro's handling of information depends on the features and
-        services included in the application.
-      </p>
-    </section>
-
-    <section id="permissions">
-      <h2>5. Permissions and Your Choices</h2>
-      <p>
-        You can review and manage available application permissions through
-        your Android device settings. You may decline optional permissions,
-        although features that depend on them may not function as intended.
-      </p>
-      <p>
-        You can stop using LumaOS Pro at any time by uninstalling the
-        application.
-      </p>
-    </section>
-
-    <section id="retention">
-      <h2>6. Data Retention and Deletion</h2>
-      <p>
-        Information stored locally may remain on your device until it is
-        deleted by the application, cleared through device settings, or
-        affected by uninstalling the application.
-      </p>
-      <p>
-        Information handled by third-party services may be retained or
-        deleted according to those services' applicable policies and
-        procedures.
-      </p>
-    </section>
-
-    <section id="security">
-      <h2>7. Security</h2>
-      <p>
-        Reasonable safeguards are important for protecting information
-        handled by the application. However, no electronic storage or
-        transmission method can be guaranteed to be completely secure.
-      </p>
-    </section>
-
-    <section id="children">
-      <h2>8. Children's Privacy</h2>
-      <p>
-        LumaOS Pro is intended to be used in accordance with applicable
-        age requirements, privacy laws, and Google Play policies.
-        Information relating to children is handled in accordance with
-        applicable legal requirements.
-      </p>
-    </section>
-
-    <section id="changes">
-      <h2>9. Changes to This Privacy Policy</h2>
-      <p>
-        This Privacy Policy may be revised to reflect changes to LumaOS Pro,
-        its features, or its privacy practices. Updates will be published
-        on this page, together with a revised date.
-      </p>
-    </section>
-
-    <section id="contact">
-      <h2>10. Contact Us</h2>
-      <p>
-        If you have questions or concerns about this Privacy Policy, contact
-        the developer through the support contact information provided on
-        the official LumaOS Pro Google Play Store listing.
-      </p>
-    </section>
   </main>
 
-  <footer>
-    &copy; 2026 LumaOS Pro. All rights reserved.
+  <footer class="site-footer">
+    <p>
+      <strong>LumaOS Pro</strong> · Privacy Policy · Effective 14 November 2026 ·
+      Applies to version 1.5.0 and later builds of the Android app
+      <code>com.lumaos.pro.launcher</code>.
+    </p>
+    <p>
+      Questions about this policy, or a request under an applicable privacy law, go to
+      the developer contact shown on the LumaOS Pro listing on Google Play.
+    </p>
+    <p><a href="#contents">Back to contents</a> · <a href="#top">Back to top</a></p>
   </footer>
 </body>
 </html>
-```
