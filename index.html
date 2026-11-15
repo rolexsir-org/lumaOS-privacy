@@ -148,12 +148,21 @@
       margin: clamp(30px, 4vw, 56px) auto clamp(56px, 8vw, 96px);
       display: grid;
       grid-template-columns: minmax(0, 1fr);
+      /* Single-column (mobile) flow. These area names must exist at every
+         width: the children below are placed by name, and a name that is
+         only declared inside a media query makes every child fall into the
+         same implicit cell — which stacks the contents card and the
+         "read this" callout on top of the policy text. */
+      grid-template-areas:
+        "glance"
+        "contents"
+        "policy";
       gap: clamp(26px, 3vw, 46px);
       align-items: start;
     }
 
-    .lede { grid-area: glance; }
-    .toc { grid-area: contents; min-width: 0; }
+    .lede { grid-area: glance; min-width: 0; }
+    .toc { grid-area: contents; min-width: 0; scroll-margin-top: 16px; }
     .sections { grid-area: policy; min-width: 0; }
 
     @media (min-width: 1000px) {
